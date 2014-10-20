@@ -1,0 +1,22 @@
+[user]
+    name = David Wickes
+    email = dave.wickes@gmail.com
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+    puhs = push
+    pshu = push
+    psuh = push
+[push]
+    default = simple
+[core]
+    autocrlf = input
+    safecrlf = true
+    excludesfile = /Users/gypsydave5/.gitignore
+    editor = "vim"
