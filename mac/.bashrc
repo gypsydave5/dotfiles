@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 
 export TERM=xterm-256color
-
+export EDITOR=vi
 
 case $- in
     *i*) ;;
@@ -57,18 +57,6 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -95,21 +83,18 @@ if ! shopt -oq posix; then
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+export PATH="$PATH:/usr/local/sbin" # rabbit-mq path
 
 # Sets the Mail Environment Variable
-MAIL=/var/spool/mail/gypsydave5 && export MAIL
+MAIL=/var/spool/mail/davidwic && export MAIL
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Changes escape key, caplock behaviour in terminal
-
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
-
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$'
 
 #git prompt
-
 red='\e[0;31m'
 RED='\e[1;31m'
 green='\e[0;32m'
@@ -146,12 +131,30 @@ function _git_prompt() {
   fi
 }
 
+#nvm directory
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
-
 eval "$(direnv hook bash)"
 
+# bash vi mode
 set -o vi
 
+# autojump path
+[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
+
+# homebrew autocomplete
+source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+# Docker set-up
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/davidwic/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin

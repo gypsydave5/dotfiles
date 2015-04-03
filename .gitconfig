@@ -18,5 +18,6 @@
 [core]
     autocrlf = input
     safecrlf = true
-    excludesfile = /Users/gypsydave5/.gitignore
+    excludesfile = /Users/davidwic/.gitignore_global
     editor = "vim"
+	ignorecase = false
