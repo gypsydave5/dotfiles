@@ -146,15 +146,20 @@ set -o vi
 # homebrew autocomplete
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
 
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
+
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+<<<<<<< HEAD
 # Docker set-up
 export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/davidwic/.boot2docker/certs/boot2docker-vm
+export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+PATH=$PATH:/usr/local/sbin

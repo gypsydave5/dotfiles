@@ -20,4 +20,4 @@
     safecrlf = true
     excludesfile = /Users/davidwic/.gitignore_global
     editor = "vim"
-	ignorecase = false
+    ignorecase = false
