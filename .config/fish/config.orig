@@ -1,0 +1,5 @@
+[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
+
+eval (direnv hook fish)
+
+source /usr/local/opt/fry/share/fry/fry.fish
