@@ -82,7 +82,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/sbin" # rabbit-mq path
 
 # Sets the Mail Environment Variable
@@ -146,8 +145,6 @@ set -o vi
 # homebrew autocomplete
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
 
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
-
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
@@ -160,5 +157,12 @@ export DOCKER_TLS_VERIFY=1
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-PATH=$PATH:/usr/local/sbin
+# Algorithms 4th ed libraries
+export CLASSPATH=$CLASSPATH:~/tutorials/coursera/algorithms-1/alg4/stdlib.jar:~/tutorials/coursera/algorithms-1/alg4/algs4.jar
+
+# AWS CLI Autocomplete
+complete -C aws_completer aws
+
+source $HOME/.bash_plugins/prompt

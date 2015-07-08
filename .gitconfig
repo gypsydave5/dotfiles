@@ -7,7 +7,7 @@
     ci = commit
     st = status
     br = branch
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    hist = log --pretty=format:'%h %at | %s%d [%an]' --graph --date=short
     type = cat-file -t
     dump = cat-file -p
     puhs = push
@@ -17,7 +17,7 @@
     default = simple
 [core]
     autocrlf = input
-    safecrlf = true
+    safecrlf = false
     excludesfile = /Users/davidwic/.gitignore_global
     editor = "vim"
     ignorecase = false
