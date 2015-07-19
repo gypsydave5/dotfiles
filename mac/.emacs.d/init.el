@@ -50,5 +50,25 @@
 ;;; tabbing between windows...
 (define-key evil-normal-state-map (kbd "TAB") 'evil-window-next)
 
+;; elisp
+(progn 
+  (require 'elisp-slime-nav)
+  (defun my-lisp-hook ()
+    (elisp-slime-nav-mode)
+    (eldoc-mode))
+  (add-hook 'emacs-lisp-mode-hook 'my-lisp-hook))
+
+;;slime
+(setq inferior-lisp-program "/usr/local/bin/clisp")
+(require 'slime-autoloads)
+(add-to-list 'slime-contribs 'slime-fancy)
+(setq slime-contribs '(slime-fancy))
+;;; slime autocomplete
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
+
+;; helm
 (require 'helm-config)
 (helm-mode 1)
