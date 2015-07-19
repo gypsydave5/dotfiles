@@ -40,8 +40,14 @@
 (global-evil-leader-mode)
 (require 'evil)
 (evil-mode 1)
-
-; tabbing between windows...
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+(evil-leader/set-leader ",")
+(evil-leader/set-key
+  "#" 'evilnc-comment-or-uncomment-lines)
+(evil-define-key 'normal emacs-lisp-mode-map (kbd "K")
+  'elisp-slime-nav-describe-elisp-thing-at-point)
+;;; tabbing between windows...
 (define-key evil-normal-state-map (kbd "TAB") 'evil-window-next)
 
 (require 'helm-config)
