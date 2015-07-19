@@ -71,4 +71,45 @@
 
 ;; helm
 (require 'helm-config)
-(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(helm-mode 0)
+(helm-autoresize-mode 1)
+
+;; colour themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(set-cursor-color "#0a9dff")
+(provide 'init-themes)
+(load-theme 'badwolf t)
+
+;; powerline
+(require 'powerline)
+(require 'powerline-evil)
+(powerline-default-theme)
+(require 'airline-themes)
+(load-theme 'airline-badwolf)
+
+;; beloved golden ratio!
+(require 'golden-ratio)
+(golden-ratio-mode t)
+(setq golden-ratio-extra-commands
+  (append golden-ratio-extra-commands
+    '(evil-window-left
+      evil-window-right
+      evil-window-up
+      evil-window-down
+      evil-window-next
+      select-window-1
+      select-window-2
+      select-window-3
+      select-window-4
+      select-window-5)))
+
+;; Dash
+(require 'dash-at-point)
+(autoload 'dash-at-point "dash-at-point"
+	    "Search the word at point with Dash." t nil)
+(evil-leader/set-key "d" 'dash-at-point)
+(add-hook 'slime-mode-hook
+	  (lambda () (setq dash-at-point-docset "Common Lisp")))
+(add-hook 'slime-repl-mode-hook
+	  (lambda () (setq dash-at-point-docset "Common Lisp")))
