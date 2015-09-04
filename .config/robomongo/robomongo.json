@@ -49,6 +49,30 @@
    "sshUserPassword" : "",
    "sslEnabled" : false,
    "sslPemKeyFile" : ""
+  },
+  {
+   "connectionName" : "Qa",
+   "credentials" : [
+    {
+     "databaseName" : "CourtDocsUpdates_QA",
+     "enabled" : true,
+     "userName" : "qa-courtdocs-updates-service",
+     "userPassword" : "Ew7ogyast"
+    }
+   ],
+   "defaultDatabase" : "",
+   "serverHost" : "lamppost.8.mongolayer.com",
+   "serverPort" : 10258,
+   "sshAuthMethod" : 0,
+   "sshHost" : "",
+   "sshPassphrase" : "",
+   "sshPort" : 22,
+   "sshPrivateKey" : "",
+   "sshPublicKey" : "",
+   "sshUserName" : "",
+   "sshUserPassword" : "",
+   "sslEnabled" : false,
+   "sslPemKeyFile" : ""
   }
  ],
  "disableConnectionShortcuts" : false,
