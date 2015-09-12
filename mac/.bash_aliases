@@ -1,6 +1,4 @@
 #!/bin/bash
-
-
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -24,15 +22,21 @@ alias gd='git diff'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gp='git pull'
-
 alias got='git '
 alias gut='git '
 
+# vim
 alias vi='mvim -v'
 alias vim='mvim -v'
 
+# intellij
 alias ij='open -b com.jetbrains.intellij.ce'
 
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
+# mocha for coffeescript
 alias mocafe='mocha --compilers coffee:coffee-script/register'
+
+# emacs
+alias ec="emacsclient -t"
+alias sec="sudo emacsclient -t"
+alias vec="emacsclient -c -a emacs"
+
