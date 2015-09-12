@@ -110,6 +110,8 @@ export PATH=$PATH:$GOPATH/bin
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+export PATH="$PATH:$HOME/bin" # My own special bins
+
 # Algorithms 4th ed libraries
 export CLASSPATH=$CLASSPATH:~/tutorials/coursera/algorithms-1/alg4/stdlib.jar:~/tutorials/coursera/algorithms-1/alg4/algs4.jar
 

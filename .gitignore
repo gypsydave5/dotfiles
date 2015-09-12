@@ -26,8 +26,8 @@ tramp
 # elpa packages
 mac/.emacs.d/elpa/
 mac/.emacs.d/snippets
-
 .emacs.d.bk
+mac/.emacs.d/ac-comphist.dat
 
 # reftex files
 *.rel
