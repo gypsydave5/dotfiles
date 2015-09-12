@@ -31,136 +31,30 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")))
 (package-initialize)
 
+(add-to-list 'load-path (concat user-emacs-directory "config"))
+
 ;; (require 'exec-path-from-shell)
 ;; (exec-path-from-shell-initialize)
 
 ;; editorconfig
-;; (load "editorconfig")
+(load "editorconfig")
 
 ;; autocomplete
-;; (setq tab-always-indent 'complete)
-;; (add-to-list 'completion-styles 'initials t)
+(setq tab-always-indent 'complete)
+(add-to-list 'completion-styles 'initials t)
 
-;; and, just for now, lets set evil mode on...
-(setq evil-toggle-key "C-M-z")
-(require 'evil-leader)
-(global-evil-leader-mode)
-(require 'evil)
-(evil-mode 1)
-(require 'evil-surround)
-(global-evil-surround-mode 1)
-(evil-leader/set-leader ",")
-(evil-leader/set-key "#"
-  'evilnc-comment-or-uncomment-lines)
-(evil-define-key 'normal emacs-lisp-mode-map (kbd "K")
-  'elisp-slime-nav-describe-elisp-thing-at-point)
-;;; visual up and down please
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-;;; tabbing between windows...
-(define-key evil-normal-state-map (kbd "TAB") 'evil-window-next)
-(define-key evil-normal-state-map (kbd "<backtab>") 'evil-window-prev)
-(evil-leader/set-key "v" 'split-window-right)
-;;; vim-matchit? Yes please!
-(require 'evil-matchit)
-(global-evil-matchit-mode 1)
-;;; ag
-(evil-leader/set-key "a" 'ag)
-
-;; elisp
-(progn
-  (require 'elisp-slime-nav)
-  (defun my-lisp-hook ()
-    (elisp-slime-nav-mode)
-    (eldoc-mode))
-  (add-hook 'emacs-lisp-mode-hook 'my-lisp-hook))
-
-;; slime
-(setq inferior-lisp-program "/usr/local/bin/clisp")
-(require 'slime-autoloads)
-(add-to-list 'slime-contribs 'slime-fancy)
-(setq slime-contribs '(slime-fancy))
-
-;; slime autocomplete
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-mode-hook 'slime)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'slime-repl-mode))
-
-
-;; helm???
-(require 'helm-config)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(helm-mode 0)
-(helm-autoresize-mode 1)
-
-;; colour themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(set-cursor-color "#0a9dff")
-(provide 'init-themes)
-(load-theme 'badwolf t)
-
-;; powerline
-(require 'powerline)
-(require 'powerline-evil)
-(powerline-default-theme)
-(require 'airline-themes)
-(load-theme 'airline-badwolf)
-
-;; beloved golden ratio!
-(require 'golden-ratio)
-(golden-ratio-mode t)
-(setq golden-ratio-extra-commands
-  (append golden-ratio-extra-commands
-    '(evil-window-left
-      evil-window-right
-      evil-window-up
-      evil-window-down
-      evil-window-next
-      evil-window-prev
-      select-window-1
-      select-window-2
-      select-window-3
-      select-window-4
-      select-window-5)))
-
-;; Dash
-(require 'dash-at-point)
-(autoload 'dash-at-point "dash-at-point"
-  "Search the word at point with Dash." t nil)
-(evil-leader/set-key "d" 'dash-at-point)
-(add-hook 'slime-mode-hook
-          (lambda () (setq dash-at-point-docset "Common Lisp")))
-(add-hook 'slime-repl-mode-hook
-          (lambda () (setq dash-at-point-docset "Common Lisp")))
-(add-hook 'coffee-mode
-          (lambda () (setq dash-at-point-docset "coffeescript")))
-(add-hook 'js2-mode
-          (lambda () (setq dash-at-point-docset "nodejs")))
+(require 'my-evil-mode)
+(require 'my-elisp)
+(require 'my-slime)
+(require 'my-helm)
+(require 'my-themes)
+(require 'my-window-management)
+(require 'my-dash)
+(require 'my-snippets)
+(require 'my-whitespace)
+(require 'my-alignment)
+(require 'my-ibuffer)
+(require 'my-paredit)
 
 ;; shortcut to the joy of init.el
 (global-set-key [f7] (lambda () (interactive) (find-file user-init-file)))
-
-;; autocomplete mode
-;; (auto-complete-mode t)
-;; (defun cd-pwd ()
-;;   (interactive)
-;;   (cd (getenv "PWD")))
-
-;; javascript
-;; (autoload 'js2-mode "js2-mode" nil t)
-;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-;; (global-set-key [f5] 'slime-js-reload)
-;; (add-hook 'js2-mode-hook
-;;           (lambda ()
-;;             (slime-js-minor-mode 1)))
-;; (add-hook 'js2-mode-hook
-;;           'ac-js2-mode)
-
-;; Align with spaces only
-(defadvice align-regexp (around align-regexp-with-spaces)
-  "Never use tabs for alignment."
-  (let ((indent-tabs-mode nil))
-    ad-do-it))
-(ad-activate 'align-regexp)

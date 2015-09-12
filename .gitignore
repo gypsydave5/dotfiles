@@ -25,7 +25,7 @@ tramp
 
 # elpa packages
 mac/.emacs.d/elpa/
-mac/.emacs.d/snippets
+mac/.emacs.d/yasnippets
 .emacs.d.bk
 mac/.emacs.d/ac-comphist.dat
 
