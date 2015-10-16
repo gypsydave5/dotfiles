@@ -14,7 +14,7 @@
  '(electric-pair-mode t)
  '(package-selected-packages
    (quote
-    (inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens evil-smartparens evil-lisp-state column-marker evil-paredit lispy paredit geiser evil-numbers ac-slime evil-matchit skewer-mode slime-repl slime typescript-mode tss helm-dash column-enforce-mode markdown-mode+ flymake-coffee js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point monokai-theme evil-surround evil-nerd-commenter evil-leader airline-themes powerline-evil powerline helm-ag-r dash ag coffee-mode xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm evil)))
+    (dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens evil-smartparens evil-lisp-state column-marker evil-paredit lispy paredit geiser evil-numbers ac-slime evil-matchit skewer-mode slime-repl slime typescript-mode tss helm-dash column-enforce-mode markdown-mode+ flymake-coffee js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point monokai-theme evil-surround evil-nerd-commenter evil-leader airline-themes powerline-evil powerline helm-ag-r dash ag coffee-mode xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm evil)))
  '(send-mail-function (quote smtpmail-send-it))
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25))
@@ -33,28 +33,30 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
-;; (require 'exec-path-from-shell)
-;; (exec-path-from-shell-initialize)
-
 ;; editorconfig
 (load "editorconfig")
-
-;; autocomplete
-(setq tab-always-indent 'complete)
-(add-to-list 'completion-styles 'initials t)
 
 (require 'my-evil-mode)
 (require 'my-elisp)
 (require 'my-slime)
 (require 'my-helm)
-(require 'my-themes)
 (require 'my-window-management)
 (require 'my-dash)
+(require 'my-themes)
 (require 'my-snippets)
+(require 'my-ruby)
 (require 'my-whitespace)
 (require 'my-alignment)
 (require 'my-ibuffer)
+(require 'my-js)
+(require 'my-spellchecker)
 (require 'my-paredit)
+(require 'my-line-numbers)
+(require 'my-markdown)
+
+;; autocomplete
+(setq tab-always-indent 'complete)
+(add-to-list 'completion-styles 'initials t)
 
 ;; shortcut to the joy of init.el
 (global-set-key [f7] (lambda () (interactive) (find-file user-init-file)))

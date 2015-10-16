@@ -18,6 +18,12 @@
 
   (define-key evil-normal-state-map (kbd "TAB") 'evil-window-next)
   (define-key evil-normal-state-map (kbd "<backtab>") 'evil-window-prev)
-  (evil-leader/set-key "v" 'split-window-right))
+
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
+  (evil-leader/set-key "v" 'split-window-right)
+
+  (evil-leader/set-key "a" 'ag))
 
 (provide 'my-evil-mode)
