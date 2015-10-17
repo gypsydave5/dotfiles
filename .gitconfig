@@ -21,3 +21,6 @@
     excludesfile = /Users/davidwic/.gitignore_global
     editor = "vim"
     ignorecase = false
+
+[color]
+	ui = auto

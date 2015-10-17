@@ -10,7 +10,11 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(custom-safe-themes
    (quote
-    ("f08c2405a7e71e568b784ae0145a86e48e1b4ea8ba33d231a4ad21b52495de5e" "eaf4cb94ad96e1659f9254db8efb799deb1885e97884f8f971ff1e6a4114500a" "356f57a98f35c8ead5a349408cab69f8d4d92baea131e9531611d0d82190fedf" default)))
+    ("beeb5ac6b65fcccfe434071d4624ff0308b5968bf2f0c01b567d212bcaf66054"
+     "f08c2405a7e71e568b784ae0145a86e48e1b4ea8ba33d231a4ad21b52495de5e"
+     "eaf4cb94ad96e1659f9254db8efb799deb1885e97884f8f971ff1e6a4114500a"
+     "356f57a98f35c8ead5a349408cab69f8d4d92baea131e9531611d0d82190fedf"
+     default)))
  '(electric-pair-mode t)
  '(package-selected-packages
    (quote
@@ -31,6 +35,9 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")))
 (package-initialize)
 
+(let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
 ;; editorconfig
@@ -42,17 +49,17 @@
 (require 'my-helm)
 (require 'my-window-management)
 (require 'my-dash)
-(require 'my-themes)
 (require 'my-snippets)
 (require 'my-ruby)
 (require 'my-whitespace)
 (require 'my-alignment)
 (require 'my-ibuffer)
 (require 'my-js)
-(require 'my-spellchecker)
 (require 'my-paredit)
 (require 'my-line-numbers)
-(require 'my-markdown)
+(require 'my-themes)
+(require 'my-spellchecker)
+;; (require 'my-markdown)
 
 ;; autocomplete
 (setq tab-always-indent 'complete)
