@@ -56,7 +56,6 @@ mongodb
 mono
 mplayer
 mplayershell
-neovim/neovim/neovim
 netcat
 nvm
 pandoc
