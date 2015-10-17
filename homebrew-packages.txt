@@ -50,10 +50,7 @@ libyaml
 lynx
 macvim
 markdown
-maven
-mercurial
 mongodb
-mono
 mplayer
 mplayershell
 netcat
@@ -75,7 +72,6 @@ ssh-copy-id
 terminal-notifier
 the_silver_searcher
 tmux
-tomcat
 transmission
 tree
 wget
