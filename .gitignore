@@ -19,6 +19,9 @@ tramp
 # flymake-mode
 *_flymake.*
 
+# recent files
+mac/.emacs.d/recentf
+
 # eshell files
 /eshell/history
 /eshell/lastdir
