@@ -29,6 +29,12 @@ mac/.emacs.d/yasnippets
 .emacs.d.bk
 mac/.emacs.d/ac-comphist.dat
 
+# recent files
+mac/.emacs.d/recentf
+
+# semantic db
+mac/.emacs.d/semanticdb/
+
 # reftex files
 *.rel
 
@@ -37,4 +43,3 @@ mac/.emacs.d/ac-comphist.dat
 
 # cask packages
 .cask/
-
