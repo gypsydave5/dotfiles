@@ -46,3 +46,4 @@ mac/.emacs.d/semanticdb/
 
 # cask packages
 .cask/
+.config/configstore
