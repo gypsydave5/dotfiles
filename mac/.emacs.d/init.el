@@ -56,7 +56,7 @@
 (require 'my-alignment)
 (require 'my-ibuffer)
 (require 'my-js)
-;; (require 'my-paredit)
+(require 'my-cider)
 (require 'my-themes)
 (require 'my-spellchecker)
 (require 'my-markdown)
