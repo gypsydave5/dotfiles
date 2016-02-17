@@ -1,0 +1,7 @@
+ll
+ls
+dired .
+(dired .)
+(dired .)
+dired .
+exit

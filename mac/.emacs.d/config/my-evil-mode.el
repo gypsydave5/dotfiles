@@ -1,4 +1,4 @@
-(progn 
+(progn
   (setq evil-toggle-key "C-M-z")
   (require 'evil-leader)
   (global-evil-leader-mode)
@@ -24,6 +24,8 @@
 
   (evil-leader/set-key "v" 'split-window-right)
 
-  (evil-leader/set-key "a" 'ag))
+  (evil-leader/set-key "a" 'ag)
+  (evil-leader/set-key "SPC" (lambda (interactive) 'highlight-remove-all)))
+
 
 (provide 'my-evil-mode)
