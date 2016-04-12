@@ -4,8 +4,10 @@
 
 # If not running interactively, don't do anything
 
+### some environment variables ###
 export TERM=xterm-256color
 export EDITOR=vi
+export BROwSER=firefox
 
 case $- in
     *i*) ;;
@@ -64,13 +66,10 @@ fi
 export PATH="$PATH:/usr/local/sbin" # rabbit-mq path
 
 ### Sets the Mail Environment Variable
-MAIL=/var/spool/mail/davidwic && export MAIL
+export MAIL=/var/spool/mail/davidwic
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-### Changes escape key, caplock behaviour in terminal
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$'
 
 #nvm directory
 export NVM_DIR=~/.nvm
@@ -83,15 +82,11 @@ set -o vi
 
 # autojump path
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
+
 # homebrew autocomplete
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
-
-# Docker set-up
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
 
 # Go
 export GOPATH=$HOME/go
@@ -109,7 +104,11 @@ complete -C aws_completer aws
 
 # emacs daemon
 export ALTERNATE_EDITOR=""
-export EDITOR=emacsclient
 
 # prompt
 source $HOME/.bash_plugins/prompt.sh
+
+# Android
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# Browser

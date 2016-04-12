@@ -13,8 +13,10 @@
     puhs = push
     pshu = push
     psuh = push
+
 [push]
     default = simple
+
 [core]
     autocrlf = input
     safecrlf = false
@@ -23,6 +25,17 @@
     ignorecase = false
 
 [color]
-	ui = auto
+    ui = auto
+
 [init]
-	templatedir = ~/.git-templates
+    templatedir = ~/.git-templates
+
+[merge]
+	tool = fugitive
+
+[mergetool "splice"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true
+
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
