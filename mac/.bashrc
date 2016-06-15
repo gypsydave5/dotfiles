@@ -4,6 +4,11 @@
 
 # If not running interactively, don't do anything
 
+#GNU utils
+## adds the gnu versions of the utils
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
 ### some environment variables ###
 export TERM=xterm-256color
 export EDITOR=vi
@@ -57,11 +62,10 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-
-# Alias definitions
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+#GNU utils
+## adds the gnu versions of the utils
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export PATH="$PATH:/usr/local/sbin" # rabbit-mq path
 
@@ -96,9 +100,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PATH="$PATH:$HOME/bin" # My own special bins
 
-# Algorithms 4th ed libraries
-export CLASSPATH=$CLASSPATH:~/tutorials/coursera/algorithms-1/alg4/stdlib.jar:~/tutorials/coursera/algorithms-1/alg4/algs4.jar
-
 # AWS CLI Autocomplete
 complete -C aws_completer aws
 
@@ -111,4 +112,30 @@ source $HOME/.bash_plugins/prompt.sh
 # Android
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
+# C Libraries
+export LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
+
 # Browser
+export BROWSER=firefox
+
+# Docker
+source $HOME/.bash_plugins/docker.sh
+
+## Python
+# only use pip in a virtual env
+export PIP_REQUIRE_VIRTUALENV=true
+
+#default email address
+export EMAIL=david.wickes@mergermarket.com
+
+# Alias definitions
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# QOTD
+if type fortune > /dev/null; then
+    echo ""
+    fortune -a
+    echo ""
+fi
