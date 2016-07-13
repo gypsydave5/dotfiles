@@ -1,1 +1,0 @@
-/Users/gypsydave5/.shell_prompt.sh
