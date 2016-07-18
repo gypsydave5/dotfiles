@@ -1,5 +1,3 @@
-eval "$(docker-machine env dev)"
-
 function dockerdie() {
 	docker images --filter "dangling=true"
 	docker rmi  $(docker images -f "dangling=true" -q)/

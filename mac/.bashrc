@@ -96,8 +96,6 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 export PATH="$PATH:$HOME/bin" # My own special bins
 
 # AWS CLI Autocomplete
@@ -125,6 +123,12 @@ source $HOME/.bash_plugins/docker.sh
 # only use pip in a virtual env
 export PIP_REQUIRE_VIRTUALENV=true
 
+# Ruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+# chruby on cd
+source /usr/local/opt/chruby/share/chruby/auto.sh
+export RUBIES=$HOME/.rubies
+
 #default email address
 export EMAIL=david.wickes@mergermarket.com
 
@@ -139,3 +143,5 @@ if type fortune > /dev/null; then
     fortune -a
     echo ""
 fi
+
+
