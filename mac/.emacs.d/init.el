@@ -39,9 +39,6 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
-;; editorconfig
-(load "editorconfig")
-
 (require 'my-emacs)
 (require 'my-evil-mode)
 (require 'my-line-numbers)
@@ -68,3 +65,6 @@
 
 ;; shortcut to the joy of init.el
 (global-set-key [f7] (lambda () (interactive) (find-file user-init-file)))
+
+;; editorconfig
+(load "editorconfig")
