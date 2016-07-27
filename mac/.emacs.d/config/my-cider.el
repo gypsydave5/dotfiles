@@ -6,11 +6,15 @@
   (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
   (add-hook 'cider-mode-hook 'ac-cider-setup)
   (add-hook 'cider-mode-hook 'my-lisp-hook)
-  (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-  (add-hook 'cider-repl-mode-hook 'evil-mode)
-  (add-hook 'cider-stacktrace-mode-hook 'evil-mode)
   (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+  (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+  (add-hook 'cider-repl-mode-hook 'my-lisp-hook)
+
   (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+  (add-to-list 'evil-emacs-state-modes 'cider-repl-mode)
+  (add-to-list 'evil-emacs-state-modes 'cider-stacktrace-mode)
 
   (eval-after-load "auto-complete"
     '(progn
