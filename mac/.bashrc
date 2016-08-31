@@ -72,9 +72,6 @@ export PATH="$PATH:/usr/local/sbin" # rabbit-mq path
 ### Sets the Mail Environment Variable
 export MAIL=/var/spool/mail/davidwic
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 #nvm directory
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh

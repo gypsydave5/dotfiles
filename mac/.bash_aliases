@@ -40,3 +40,6 @@ alias ec="emacsclient -t"
 alias sec="sudo emacsclient -t"
 alias vec="emacsclient -c -a emacs"
 
+# tmux
+alias tmux="tmux -u" # ensures unicode mode
+

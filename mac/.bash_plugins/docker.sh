@@ -21,3 +21,18 @@ function docker-stats-all(){
 	docker stats $(docker ps | awk '{if(NR>1) print $NF}')
 }
 
+function docker-kill-grep(){
+    local DOCKER_IDS=$(docker ps --format "{{.ID}}\t{{.Names}}"| grep $1 | cut -f 1)
+    local DOCKER_NAMES=$(docker ps --format "{{.Names}}"| grep $1)
+
+    if [ -z "$DOCKER_IDS" ]; then
+        echo "No processes found matching $1"
+        return 1
+    fi
+
+    echo "Deleting containers:\n$DOCKER_NAMES"
+
+    echo "$DOCKER_IDS" | xargs -n1 docker kill
+    return 0
+}
+
