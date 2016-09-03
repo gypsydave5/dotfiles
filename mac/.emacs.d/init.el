@@ -88,3 +88,5 @@
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
+(setq org-mobile-inbox-for-pull "~/Dropbox/org-mode/flagged.org")
+(setq org-directory "~/Dropbox/org-mode")

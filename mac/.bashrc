@@ -121,10 +121,10 @@ source $HOME/.bash_plugins/docker.sh
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Ruby
+export RUBIES=$HOME/.rubies
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 # chruby on cd
 source /usr/local/opt/chruby/share/chruby/auto.sh
-export RUBIES=$HOME/.rubies
 
 #default email address
 export EMAIL=david.wickes@mergermarket.com
