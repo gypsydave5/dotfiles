@@ -79,6 +79,8 @@
 ;; autosave files now go in the user-emacs-directory
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "auto-save/") t)))
+(setq backup-directory-alist
+      `((".*" . ,(concat user-emacs-directory "auto-backup"))))
 
 ;; shortcut to the joy of init.el
 (global-set-key [f7] (lambda () (interactive) (find-file user-init-file)))
