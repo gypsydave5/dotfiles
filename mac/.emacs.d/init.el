@@ -3,6 +3,9 @@
 ;;  Disable splash screen (enable by changing t to 0)
 (setq inhibit-splash-screen t)
 
+;; No scrollbars please, we're British
+(scroll-bar-mode -1)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -66,6 +69,9 @@
 (require 'my-markdown)
 (require 'my-org)
 
+;; fill width
+(setq-default fill-column 80)
+
 ;; autocomplete
 (setq tab-always-indent 'complete)
 (add-to-list 'completion-styles 'initials t)
@@ -84,9 +90,6 @@
 (add-to-list 'default-frame-alist '(font . "Monoid"))
 (set-face-attribute 'default t :font "Monoid")
 
-;; org mode
-(require 'org)
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
-(setq org-mobile-inbox-for-pull "~/Dropbox/org-mode/flagged.org")
-(setq org-directory "~/Dropbox/org-mode")
+;; ansi color please
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on) :
+(add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
