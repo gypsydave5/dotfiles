@@ -134,6 +134,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+#dot
+GRAPHVIZ_DOT=/usr/local/opt/graphviz/bin/dot
+
 # QOTD
 if type fortune > /dev/null; then
     echo ""

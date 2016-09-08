@@ -6,6 +6,17 @@
   (global-set-key "\C-ca" 'org-agenda)
   (global-font-lock-mode 1)
 
+  ;; active Org-babel languages
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '( ;; other Babel languages
+     (plantuml . t)))
+
+  ;; not sure where this should go - but for now here
+
+  (setq org-plantuml-jar-path
+      (expand-file-name "/usr/local/Cellar/plantuml/plantuml.jar"))
+
   (add-to-list 'evil-emacs-state-modes 'org-mode))
 
 (provide 'my-org)
