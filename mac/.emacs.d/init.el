@@ -1,3 +1,4 @@
+
 ;;  -*- mode: elisp -*-
 
 ;;  Disable splash screen (enable by changing t to 0)
@@ -36,9 +37,9 @@
 
 (require 'package)
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("org" . "http://orgmode.org/elpa/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")))
+			 ("org" . "http://orgmode.org/elpa/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("marmalade" . "https://marmalade-repo.org/packages/")))
 
 (package-initialize)
 (package-install-selected-packages)

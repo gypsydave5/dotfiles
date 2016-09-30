@@ -78,9 +78,6 @@ source $(brew --prefix nvm)/nvm.sh
 
 eval "$(direnv hook bash)"
 
-# bash vi mode
-set -o vi
-
 # autojump path
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
