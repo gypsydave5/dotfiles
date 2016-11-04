@@ -134,6 +134,9 @@ fi
 #dot
 GRAPHVIZ_DOT=/usr/local/opt/graphviz/bin/dot
 
+#haskell - stack local directory
+PATH="$HOME/.local/bin:$PATH"
+
 # QOTD
 if type fortune > /dev/null; then
     echo ""
