@@ -137,6 +137,9 @@ GRAPHVIZ_DOT=/usr/local/opt/graphviz/bin/dot
 #haskell - stack local directory
 PATH="$HOME/.local/bin:$PATH"
 
+#Rust
+RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+
 # QOTD
 if type fortune > /dev/null; then
     echo ""
