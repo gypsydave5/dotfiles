@@ -13,9 +13,6 @@
 
   (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
-  (add-to-list 'evil-emacs-state-modes 'cider-repl-mode)
-  (add-to-list 'evil-emacs-state-modes 'cider-stacktrace-mode)
-
   (eval-after-load "auto-complete"
     '(progn
        (add-to-list 'ac-modes 'cider-mode)

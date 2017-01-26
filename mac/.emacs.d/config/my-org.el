@@ -15,8 +15,6 @@
   ;; not sure where this should go - but for now here
 
   (setq org-plantuml-jar-path
-      (expand-file-name "/usr/local/Cellar/plantuml/plantuml.jar"))
-
-  (add-to-list 'evil-emacs-state-modes 'org-mode))
+      (expand-file-name "/usr/local/Cellar/plantuml/plantuml.jar")))
 
 (provide 'my-org)

@@ -7,7 +7,6 @@
 
   ;; powerline
   (require 'powerline)
-  (require 'powerline-evil)
   (powerline-default-theme)
   (require 'airline-themes)
   (load-theme 'airline-badwolf))

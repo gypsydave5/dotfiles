@@ -12,7 +12,6 @@
               (delete-region (point) (match-end 0)))))))
 
 (progn
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (add-hook 'evil-insert-state-exit-hook 'delete-trailing-whitespace-of-current-line))
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 (provide 'my-whitespace)
