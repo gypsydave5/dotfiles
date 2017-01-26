@@ -132,13 +132,13 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 #dot
-GRAPHVIZ_DOT=/usr/local/opt/graphviz/bin/dot
+export GRAPHVIZ_DOT=/usr/local/opt/graphviz/bin/dot
 
 #haskell - stack local directory
-PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 #Rust
-RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # QOTD
 if type fortune > /dev/null; then
