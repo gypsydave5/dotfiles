@@ -8,6 +8,10 @@
 ## adds the gnu versions of the utils
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+MANPATH="/usr/local/opt/gnu-sed/share/man:$MANPATH"
+MANPATH="/usr/local/opt/gnu-tar/share/man:$MANPATH"
+MANPATH="/usr/local/opt/findutils/share/man:$MANPATH"
+
 
 ### some environment variables ###
 export TERM=xterm-256color
@@ -62,10 +66,6 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-#GNU utils
-## adds the gnu versions of the utils
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export PATH="$PATH:/usr/local/sbin" # rabbit-mq path
 
