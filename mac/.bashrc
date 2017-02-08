@@ -101,9 +101,6 @@ export ALTERNATE_EDITOR=""
 # prompt
 source $HOME/.bash_plugins/prompt.sh
 
-# Android
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
 # C Libraries
 export LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
 
@@ -139,6 +136,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #Rust
 export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # QOTD
 if type fortune > /dev/null; then
@@ -153,4 +151,3 @@ PERL5LIB="/Users/davidwic/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL
 PERL_LOCAL_LIB_ROOT="/Users/davidwic/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/davidwic/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/davidwic/perl5"; export PERL_MM_OPT;
-
