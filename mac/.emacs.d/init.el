@@ -1,4 +1,3 @@
-
 ;;  -*- mode: elisp -*-
 ;;  Disable splash screen (enable by changing t to 0)
 (setq inhibit-splash-screen t)
@@ -67,6 +66,7 @@
 (require 'my-spellchecker)
 (require 'my-markdown)
 (require 'my-org)
+;; (require 'my-clojure)
 
 ;; fill width
 (setq-default fill-column 80)
