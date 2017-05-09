@@ -135,15 +135,8 @@ export GRAPHVIZ_DOT=/usr/local/opt/graphviz/bin/dot
 export PATH="$HOME/.local/bin:$PATH"
 
 #Rust
-export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# QOTD
-if type fortune > /dev/null; then
-    echo ""
-    fortune
-    echo ""
-fi
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 
 # Perl shizzle
 PATH="/Users/davidwic/perl5/bin${PATH:+:${PATH}}"; export PATH;
@@ -151,3 +144,10 @@ PERL5LIB="/Users/davidwic/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL
 PERL_LOCAL_LIB_ROOT="/Users/davidwic/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/davidwic/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/davidwic/perl5"; export PERL_MM_OPT;
+
+# QOTD
+if type fortune > /dev/null; then
+    echo ""
+    fortune
+    echo ""
+fi
