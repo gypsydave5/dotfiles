@@ -13,6 +13,7 @@
     puhs = push
     pshu = push
     psuh = push
+    catchup = !git fetch upstream && git merge upstream/master master
 
 [push]
     default = simple
