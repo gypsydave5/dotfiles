@@ -12,7 +12,6 @@ MANPATH="/usr/local/opt/gnu-sed/share/man:$MANPATH"
 MANPATH="/usr/local/opt/gnu-tar/share/man:$MANPATH"
 MANPATH="/usr/local/opt/findutils/share/man:$MANPATH"
 
-
 ### some environment variables ###
 export TERM=xterm-256color
 export EDITOR=vi
@@ -109,6 +108,9 @@ export BROWSER=firefox
 
 # Docker
 source $HOME/.bash_plugins/docker.sh
+
+# ls colors
+source $HOME/.bash_plugins/ls_colors.sh
 
 ## Python
 # only use pip in a virtual env
