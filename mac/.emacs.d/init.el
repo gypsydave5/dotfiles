@@ -70,6 +70,7 @@
 (require 'my-ibuffer)
 (require 'my-js)
 (require 'my-cider)
+(require 'my-racket)
 (require 'my-themes)
 (require 'my-spellchecker)
 (require 'my-markdown)
