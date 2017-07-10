@@ -44,6 +44,11 @@
 (package-initialize)
 (package-install-selected-packages)
 
+
+;; enable ido mode
+(require 'ido)
+(ido-mode t)
+
 (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
 
