@@ -147,9 +147,12 @@ PERL_LOCAL_LIB_ROOT="/Users/davidwic/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_L
 PERL_MB_OPT="--install_base \"/Users/davidwic/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/davidwic/perl5"; export PERL_MM_OPT;
 
+export PATH=$PATH:/Library/TeX/texbin/
+
 # QOTD
 if type fortune > /dev/null; then
     echo ""
     fortune
     echo ""
 fi
+
