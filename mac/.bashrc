@@ -123,7 +123,7 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
 #default email address
-export EMAIL=david.wickes@mergermarket.com
+export EMAIL=david.wickes@acuris.com
 
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
