@@ -23,7 +23,7 @@
  '(org-agenda-files (quote ("~/Dropbox/org-mode/1.org")))
  '(package-selected-packages
    (quote
-    (ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ flymake-coffee js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag coffee-mode xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm)))
+    (auctex intero haskell-mode ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ flymake-coffee js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag coffee-mode xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm)))
  '(send-mail-function (quote smtpmail-send-it))
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25))
@@ -75,6 +75,7 @@
 (require 'my-spellchecker)
 (require 'my-markdown)
 (require 'my-org)
+(require 'my-fonts)
 ;; (require 'my-clojure)
 
 ;; fill width
