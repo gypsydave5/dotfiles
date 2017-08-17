@@ -149,6 +149,15 @@ PERL_MM_OPT="INSTALL_BASE=/Users/davidwic/perl5"; export PERL_MM_OPT;
 
 export PATH=$PATH:/Library/TeX/texbin/
 
+#Clojure Boot
+export BOOT_JVM_OPTIONS="-client
+-XX:+TieredCompilation
+-XX:TieredStopAtLevel=1
+-Xmx2g
+-XX:+UseConcMarkSweepGC
+-XX:+CMSClassUnloadingEnabled
+-Xverify:none"
+
 # QOTD
 if type fortune > /dev/null; then
     echo ""
