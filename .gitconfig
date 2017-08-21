@@ -16,7 +16,7 @@
     catchup = !git fetch upstream && git merge upstream/master master
 
 [push]
-    default = simple
+    default = current
 
 [core]
     autocrlf = input
