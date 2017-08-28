@@ -7,7 +7,6 @@
     (eldoc-mode))
 
   (add-hook 'emacs-lisp-mode-hook 'my-lisp-hook)
-  (add-hook 'emacs-lisp-mode-hook 'my-elisp-hook)
-  (add-hook 'emacs-lisp-mode-hook 'ielm-auto-complete))
+  (add-hook 'emacs-lisp-mode-hook 'my-elisp-hook))
 
 (provide 'my-elisp)
