@@ -23,7 +23,7 @@
  '(org-agenda-files (quote ("~/Dropbox/org-mode/1.org")))
  '(package-selected-packages
    (quote
-    (js2-refactor go-mode evil-surround evil tern-context-coloring tern-auto-complete tern auctex intero haskell-mode ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm)))
+    (yaml-mode evil-leader jq-mode evil-commentary evil-org js2-refactor go-mode evil-surround evil tern-context-coloring tern-auto-complete tern auctex intero haskell-mode ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm)))
  '(send-mail-function (quote smtpmail-send-it))
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25))
@@ -33,7 +33,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#141413" :foreground "#f8f6f2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width semi-condensed :foundry "nil" :family "Fira Code"))))
- '(font-lock-comment-face ((t (:foreground "#998f84" :slant oblique))))
+ '(fontn-lock-comment-face ((t (:foreground "#998f84" :slant oblique))))
  '(linum ((t (:background "color-235" :foreground "#666462")))))
 
 (require 'package)
@@ -75,8 +75,9 @@
 (require 'my-spellchecker)
 (require 'my-markdown)
 (require 'my-org)
-(require 'my-fonts)
+;; (require 'my-fonts)
 (require 'my-flycheck)
+(require 'my-evil-mode)
 ;; (require 'my-clojure)
 
 ;; fill width
@@ -104,3 +105,5 @@
 ;; ansi color please
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on) :
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
+
+(setq-default indent-tabs-mode nil)
