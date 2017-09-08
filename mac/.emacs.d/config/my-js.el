@@ -22,5 +22,13 @@
 (setq js2-mode-show-strict-warnings nil)
 (setq js2-strict-trailing-comma-warning nil)
 
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (define-key js2-mode-map (kbd "C-c C-e") 'nodejs-repl-send-last-expression)
+            (define-key js2-mode-map (kbd "C-c C-j") 'nodejs-repl-send-line)
+            (define-key js2-mode-map (kbd "C-c C-r") 'nodejs-repl-send-region)
+            (define-key js2-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
+            (define-key js2-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
+
 (provide 'my-js)
 ;;; my-js.el ends here
