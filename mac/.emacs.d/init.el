@@ -103,7 +103,7 @@
 (set-face-attribute 'default t :font "Fira Code")
 
 ;; ansi color please
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on) :
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
 
 (global-set-key (kbd "C-x g") 'magit-status)
