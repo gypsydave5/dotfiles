@@ -23,10 +23,11 @@
  '(org-agenda-files (quote ("~/Dropbox/org-mode/1.org")))
  '(package-selected-packages
    (quote
-(kotlin-mode handlebars-mode yaml-mode evil-leader jq-mode evil-commentary evil-org js2-refactor go-mode evil-surround evil tern-context-coloring tern-auto-complete tern auctex intero haskell-mode ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm)))
+    (vimrc-mode rake kotlin-mode handlebars-mode yaml-mode evil-leader jq-mode evil-commentary evil-org js2-refactor go-mode evil-surround evil tern-context-coloring tern-auto-complete tern auctex intero haskell-mode ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm)))
  '(send-mail-function (quote smtpmail-send-it))
  '(smtpmail-smtp-server "smtp.gmail.com")
- '(smtpmail-smtp-service 25))
+ '(smtpmail-smtp-service 25)
+ '(tramp-syntax (quote default) nil (tramp)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -106,6 +107,10 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
 
+;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; shell
+(exec-path-from-shell-initialize)
 
 (setq-default indent-tabs-mode nil)

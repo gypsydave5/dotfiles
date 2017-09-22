@@ -18,6 +18,7 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;; eval buffer
 (eval-after-load 'slime-mode
   '(define-key inferior-slime-mode-map (kbd "C-c C-a") 'slime-eval-buffer))
