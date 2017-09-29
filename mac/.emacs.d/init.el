@@ -38,7 +38,7 @@
  '(linum ((t (:background "color-235" :foreground "#666462")))))
 
 (require 'package)
-(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+(setq package-archives '(("melpa" . "http://melpa.org/packages/")
 			 ("org" . "http://orgmode.org/elpa/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
 			 ("marmalade" . "https://marmalade-repo.org/packages/")))
