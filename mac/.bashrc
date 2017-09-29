@@ -119,8 +119,8 @@ export PIP_REQUIRE_VIRTUALENV=true
 # Ruby
 export RUBIES=$HOME/.rubies
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-## chruby on cd
 source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby
 
 #default email address
 export EMAIL=david.wickes@acuris.com
