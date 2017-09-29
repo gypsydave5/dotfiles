@@ -1,4 +1,11 @@
+;;; init.el --- initial Emacs configuration file
 ;;  -*- mode: elisp -*-
+;;; Commentary:
+;; Built up over c. a year since 2016, organized into sub configuration files
+;; found in `config` directory.
+;;
+;;; Code:
+
 ;;  Disable splash screen (enable by changing t to 0)
 (setq inhibit-splash-screen t)
 
@@ -76,7 +83,7 @@
 (require 'my-spellchecker)
 (require 'my-markdown)
 (require 'my-org)
-;; (require 'my-fonts)
+(require 'my-fonts)
 (require 'my-flycheck)
 (require 'my-evil-mode)
 ;; (require 'my-clojure)
@@ -99,10 +106,6 @@
 ;; shortcut to the joy of init.el
 (global-set-key [f7] (lambda () (interactive) (find-file user-init-file)))
 
-;; fonts
-(add-to-list 'default-frame-alist '(font . "Fira Code"))
-(set-face-attribute 'default t :font "Fira Code")
-
 ;; ansi color please
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
@@ -114,3 +117,6 @@
 (exec-path-from-shell-initialize)
 
 (setq-default indent-tabs-mode nil)
+
+(provide 'init)
+;;; init.el ends here
