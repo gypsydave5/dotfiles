@@ -27,4 +27,4 @@ function docker-remove-dangling() {
     docker rmi $(docker images --no-trunk -f dangling=true)
 }
 
-
+alias dcompose=docker-compose
