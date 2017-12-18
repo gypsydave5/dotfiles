@@ -1,3 +1,4 @@
+alias dcompose docker-compose $*
 alias ec emacsclient -t $*
 alias egrep egrep --color=auto $*
 alias fgrep fgrep --color=auto $*

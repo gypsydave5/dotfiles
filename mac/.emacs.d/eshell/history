@@ -5,3 +5,9 @@ dired .
 (dired .)
 dired .
 exit
+gs
+git hist -4
+n
+ll
+cd ..
+npm run build

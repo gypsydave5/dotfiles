@@ -22,7 +22,7 @@
     autocrlf = input
     safecrlf = false
     excludesfile = /Users/davidwic/.gitignore_global
-    editor = "vim -f"
+	editor = mvim -v
     ignorecase = false
 
 [color]
