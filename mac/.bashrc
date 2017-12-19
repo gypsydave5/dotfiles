@@ -86,7 +86,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Go
-export GOPATH=$HOME/go
+export GOPATH=$HOME/go:$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
 export PATH="$PATH:$HOME/bin" # My own special bins
@@ -166,3 +166,5 @@ if type fortune > /dev/null; then
 fi
 
 alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.emacs.d/eshell/alias
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
