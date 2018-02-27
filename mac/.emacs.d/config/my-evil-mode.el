@@ -1,3 +1,5 @@
+;;; Code
+
 (progn
   (setq evil-default-state 'emacs)
   (require 'evil-leader)
@@ -6,7 +8,7 @@
   (evil-mode 1)
   (require 'evil-surround)
   (global-evil-surround-mode 1)
-  ;; (require 'evil-matchit)
+  ;; (require 'evil-matchit)j
   ;; (global-evil-matchit-mode 1)
   ;; (require 'evil-numbers)
 
@@ -19,12 +21,13 @@
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
   (evil-leader/set-key "v" 'split-window-right)
-
   (evil-leader/set-key "a" 'ag)
   (evil-leader/set-key "SPC" (lambda (interactive) 'highlight-remove-all))
+
   (loop for (mode . state) in '((js2-mode . normal)
                                 (js-mode . normal)
                                 (js2-jsx-mode . normal)
                                 (text-mode . normal))
         do (evil-set-initial-state mode state)))
+
 (provide 'my-evil-mode)

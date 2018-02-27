@@ -1,13 +1,99 @@
-ll
-ls
-dired .
-(dired .)
-(dired .)
-dired .
-exit
+g
 gs
-git hist -4
-n
+ga gradle
+gs
+gc -m 'worked example of fizzbuzz'
+gs
+git push
+git remote add origin git@github.com:gypsydave5/kotlin-playground.gitgit push -u origin master
 ll
 cd ..
-npm run build
+j
+cd ~/exercism/
+ll
+cd kotlin/
+l
+ls
+ll
+cd acronym/
+ll
+gradle test
+ll
+ij .
+ij .
+sudo htop
+cradlecap
+sudo htop
+cradle
+s
+exercism s src/main/kotlin/Acronym.kt
+exercism s src/main/kotlin/Acronym.kt
+exercism s src/main/kotlin/Acronym.kt
+cd ..
+ll
+ll
+cd ..
+ll
+cd clojure/hello-world/src/
+ll
+exercism s hello_world.clj
+exercism fetch
+cd ..
+cd ..
+ll
+cd ../kotlin/
+ll
+cd scrabble-score/
+ll
+ij .
+gs
+ll
+exercism s src/main/kotlin/Scrabble.kt
+exercism f
+ghci
+cd ~/projects/gypsydave5.github.io/
+ll
+gs
+rake
+brew cask install insomniax
+cd ~/Dropbox/org-mode/
+ll
+rm ._*
+ll
+cd ..
+ll
+gs
+j down
+cd ~/Downlo
+cd
+cd ~
+cd ~/Downloads
+ll
+rm plan9.iso.bz2
+rm the-production-of-money.epub
+rm the-origin-of-capitalism.epub
+rm the-abcs-of-socialism.epub
+-rw-r--r--    1 gypsydave5 staff  1487932 Jul 17 20:43  sicp.info
+open .
+scp
+ls
+ls | grep .pdf
+ls | grep "*.pdf"
+ls | grep *.pdf
+ls | grep -iname *.pdf
+ls
+grep
+grep . pdf
+rm free-software-song.au
+l
+cd ..
+rake serve
+chruby
+ll
+cd
+ll
+ls
+l
+cat RMAIL
+cd dev/
+ls
