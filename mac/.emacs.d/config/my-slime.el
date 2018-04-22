@@ -22,4 +22,6 @@
 ;; eval buffer
 (eval-after-load 'slime-mode
   '(define-key inferior-slime-mode-map (kbd "C-c C-a") 'slime-eval-buffer))
+
+(require 'common-lisp-snippets)
 (provide 'my-slime)
