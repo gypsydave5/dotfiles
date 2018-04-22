@@ -86,7 +86,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Go
-export GOPATH=$HOME/go:$HOME/dev/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 export PATH="$PATH:$HOME/bin" # My own special bins
@@ -158,6 +158,13 @@ export BOOT_JVM_OPTIONS="-client
 -XX:+CMSClassUnloadingEnabled
 -Xverify:none"
 
+#Jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+#NodeJS
+nvm use node
+
 # QOTD
 if type fortune > /dev/null; then
     echo ""
@@ -166,8 +173,6 @@ if type fortune > /dev/null; then
 fi
 
 alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.emacs.d/eshell/alias
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 
 # THE FUCK
 eval $(thefuck --alias)
