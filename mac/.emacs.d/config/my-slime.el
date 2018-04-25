@@ -1,7 +1,7 @@
 ;; slime
 (setq slime-lisp-implementations
-      '((sbcl ("/usr/local/bin/sbcl"))
-	(clisp ("/usr/local/bin/clisp"))))
+      '((clisp ("/usr/local/bin/clisp"))
+	(sbcl ("/usr/local/bin/sbcl"))))
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (require 'slime-autoloads)
