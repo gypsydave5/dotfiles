@@ -50,9 +50,7 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")
 			 ("marmalade" . "https://marmalade-repo.org/packages/")))
 
-(package-initialize)
 (package-install-selected-packages)
-
 
 ;; enable ido mode
 (require 'ido)
