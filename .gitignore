@@ -35,6 +35,9 @@ mac/.emacs.d/ac-comphist.dat
 # recent files
 mac/.emacs.d/recentf
 
+# eshell
+mac/.emacs.d/eshell
+
 # semantic db
 mac/.emacs.d/semanticdb/
 
