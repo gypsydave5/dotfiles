@@ -15,7 +15,6 @@ MANPATH="/usr/local/opt/findutils/share/man:$MANPATH"
 ### some environment variables ###
 export TERM=xterm-256color
 export EDITOR=vi
-export BROwSER=firefox
 
 case $- in
     *i*) ;;
@@ -88,8 +87,7 @@ fi
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
-export PATH="$PATH:$HOME/bin" # My own special bins
+export PATH=$PATH:$HOME/bin # My own special bins
 
 # AWS CLI Autocomplete
 complete -C aws_completer aws
@@ -159,8 +157,9 @@ export BOOT_JVM_OPTIONS="-client
 -Xverify:none"
 
 #Jenv
+export JENV_ROOT=/usr/local/opt/jenv
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 #NodeJS
 nvm use node
@@ -172,7 +171,4 @@ if type fortune > /dev/null; then
     echo ""
 fi
 
-alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.emacs.d/eshell/alias
-
-# THE FUCK
-eval $(thefuck --alias)
+alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" > '~/.emacs.d/eshell/alias'
