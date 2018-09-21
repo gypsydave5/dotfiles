@@ -10,10 +10,13 @@
     (show-paren-mode)))
 
 (eval-after-load "lispy"
-  `(progn
-     (lispy-define-key lispy-mode-map "E" 'lispy-eval-and-comment)))
+                 `(progn
+                    (lispy-define-key lispy-mode-map "E" 'lispy-eval-and-comment)
+                    (add-to-list 'lispy-compat 'cider)
+                    (add-to-list 'lispy-compat 'magit-blame-mode)
+                    (setq lispy-comment-use-single-semicolon t)))
 
-(load "/Users/gypsydave5/quicklisp/clhs-use-local.el" t)
+(load "~/.roswell/lisp/quicklisp/clhs-use-local.el" t)
 
 (provide 'my-lisps)
 ;;; my-lisps.el ends here
