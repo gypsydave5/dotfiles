@@ -1,0 +1,18 @@
+# change this file to 2 to get function keys to be function keys
+echo 2 >/sys/module/hid_apple/parameters/fnmode
+
+# this gets things close to what I want, but they don't work in the terminal
+setxkbmap us -variant colemak -option ctrl:nocaps -option shift:both_capslock
+
+# xcape stuff to get the tap keys I like
+xcape -e 'Control_L=Escape'
+
+# adding develper stuff
+sudo dnf install python2-devel
+sudo dnf groupinstall "C Development Tools and Libraries"
+sudo dnf groupinstall "Development Tools"
+
+# vim backup dirs
+mkdir .vim/tmp/backup
+mkdir .vim/tmp/swap
+mkdir .vim/tmp/undo
