@@ -18,6 +18,7 @@ File: dir,	Node: Top	This is the top of the INFO tree
 
 The Algorithmic Language Scheme
 * SICP: (sicp). Structure and Interpretation of Computer Programs
+* Guile Ncurses: (guile-ncurses).     A TUI library for Guile.
 
 Common Lisp
 * On Lisp: (onlisp). On Lisp by Paul Graham

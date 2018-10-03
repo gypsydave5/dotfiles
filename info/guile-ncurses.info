@@ -1,0 +1,206 @@
+This is guile-ncurses.info, produced by makeinfo version 4.8 from
+guile-ncurses.texi.
+
+   This manual is for the GNU Guile-NCurses library, (version 2.2,
+8 April 2017).  It provides bindings for the ncurses library, which
+provides functionality for updating character screens.
+
+   Copyright (C) 1998-2010,2011,2013,2014,2016 Free Software
+Foundation, Inc.
+Copyright (C) 2001-2005 Pradeep Padala
+     Permission is hereby granted, free of charge, to any person
+     obtaining a copy of this software and associated documentation
+     files (the "Software"), to deal in the Software without
+     restriction, including without limitation the rights to use, copy,
+     modify, merge, publish, distribute, distribute with modifications,
+     sublicense, and/or sell copies of the Software, and to permit
+     persons to whom the Software is furnished to do so, subject to the
+     following conditions:
+
+     The above copyright notice and this permission notice shall be
+     included in all copies or substantial portions of the Software.
+
+     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     NONINFRINGEMENT.  IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDERS BE
+     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+     ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+     SOFTWARE.
+
+     Except as contained in this notice, the name(s) of the above
+     copyright holders shall not be used in advertising or otherwise to
+     promote the sale, use or other dealings in this Software without
+     prior written authorization.
+
+
+INFO-DIR-SECTION The Algorithmic Language Scheme
+START-INFO-DIR-ENTRY
+* Guile Ncurses: (guile-ncurses).     A TUI library for Guile.
+END-INFO-DIR-ENTRY
+
+
+Indirect:
+guile-ncurses.info-1: 1933
+guile-ncurses.info-2: 290965
+
+Tag Table:
+(Indirect)
+Node: Top1933
+Node: Introduction8603
+Node: Authors8768
+Node: Components of a Curses Interface13040
+Node: Terminal Capabilities14746
+Node: Keyboards and Keys15345
+Node: Characters16256
+Node: Windows17086
+Node: Types and encodings18049
+Node: Character types18492
+Node: Opaque types23488
+Node: Curses Tutorial24889
+Node: Hello World!!!25393
+Node: Using the Guile Curses module25789
+Node: Interactive sessions and `guile-ncurses-shell'29185
+Node: The Gory Details31452
+Node: Initialization31875
+Node: Initialization Functions32478
+Node: An example34540
+Node: A word about windows35139
+Node: Output functions36744
+Node: The `addch' procedure37423
+Node: `addstr' class of functions40670
+Node: A simple `addstr' example41105
+Node: A word of caution41856
+Node: Input functions42479
+Node: `getch' class of functions42924
+Node: `getnstr' class of functions43815
+Node: An example of `getnstr' and `getch'44381
+Node: Attributes44598
+Node: The details46128
+Node: `attr-on!' vs `attr-set!'47833
+Node: `attr-get'48840
+Node: `chgat' function49416
+Node: Windows Tutorial50780
+Node: The basics52214
+Node: Let there be a window53261
+Node: Other functions55962
+Node: Other border functions56482
+Node: Colors57335
+Node: The basics of color57553
+Node: Changing color definitions58983
+Node: Interfacing with the keyboard60090
+Node: The basics of keys60363
+Node: A simple key usage example62209
+Node: Interfacing with the mouse62405
+Node: The basics of the mouse62861
+Node: Getting the events64704
+Node: Miscellaneous functions65809
+Node: Panels Library66311
+Node: Panels Basics67799
+Node: Compiling With the Panels Library70062
+Node: Moving and Resizing Panels70842
+Node: Menu Library71351
+Node: Menu Basics72295
+Node: Menu Driver75261
+Node: Menu Windows78961
+Node: Scrolling Menus80076
+Node: Forms Library80542
+Node: The Basics (Forms)81578
+Node: A Form Example83346
+Node: Making it useful84812
+Node: Playing with fields87150
+Node: Field Display Attributes88329
+Node: Field Option Bits89940
+Node: Field Status96134
+Node: Variable-Sized Fields96760
+Node: Form Windows98498
+Node: Field Validation102005
+Node: The Form Driver105486
+Node: Curses Reference107714
+Node: The naming of routines108443
+Node: The basic curses library109664
+Node: Overview111614
+Node: Features determined at compile time116659
+Node: Curses screen initialization and manipulation routines117562
+Node: Errors and Exceptions122600
+Node: Making rendered characters123360
+Node: Adding characters130104
+Ref: tab:ACS133408
+Node: Adding strings of characters and attributes134873
+Node: Character and window attribute control routines136667
+Ref: tab:a141291
+Node: Bell and screen flash routines141799
+Node: Window background manipulation routines142666
+Node: Borders and lines144297
+Node: Clearing windows and parts of window146570
+Node: Color manipulation routines148031
+Node: Deleting the character under the cursor154811
+Node: Deleting and inserting lines155556
+Node: Getting characters from the keyboard156757
+Ref: tab:key159910
+Ref: tab:key2161718
+Node: Handling unmapped keys165316
+Node: Receiving strings from the keyboard167478
+Node: Cursor location and window coordinates168796
+Node: Getting a rendered character from the window170143
+Node: Getting a string of characters and attributes from a window170696
+Node: Input options171286
+Node: Inserting a character before the cursor179577
+Node: Inserting a string before the cursor180272
+Node: Getting a string of characters from the screen181230
+Node: Low-level routines181820
+Node: Mouse handling184088
+Ref: tab:mouse185201
+Node: Moving the cursor189849
+Node: Output options190427
+Node: Overlay and manipulate overlapped windows195651
+Node: Create and display pads197014
+Node: Print data to a terminal-attached ports200865
+Node: Refresh windows and lines202021
+Node: Reading and writing a curses screen to a file204982
+Node: Scroll a window206899
+Node: Terminal attributes207881
+Node: Refresh routines209777
+Node: Miscellaneous utilities211233
+Node: Window creation214241
+Node: Terminal resizing219262
+Node: Querying the terminfo database220358
+Node: Function key labels library222263
+Node: The curses panel library226126
+Node: The curses menu library229864
+Node: Menus Overview230272
+Node: Menu Item Procedures230935
+Node: Menu Procedures234299
+Node: Menu Colors and Attributes234605
+Node: Positioning a menu cursor236013
+Node: The menu driver236495
+Node: Menu sizes241042
+Node: Menu mark strings242050
+Node: Menu creation242907
+Node: Menu options243292
+Node: Menu pattern buffer244795
+Node: Writing or erasing menus from window245850
+Node: Control spacing between menu items246921
+Node: Associate menus with window248424
+Node: The curses form library249476
+Node: Forms Overview250210
+Node: Form procedures251327
+Node: Making or breaking connections between forms and fields259108
+Node: Color and attribute control for form fields260326
+Node: Data type validation for fields266558
+Node: Creating forms270313
+Node: Form pagination functions270652
+Node: Setting and getting form options271159
+Node: Setting the page number and field272304
+Node: Writing or erasing forms from associated subwindows273238
+Node: Printable form request names273839
+Node: Form windows274300
+Node: The termios and miscellaneous library275147
+Node: Termios introduction275784
+Node: Standard termios functions276479
+Node: Termios port interface286835
+Node: Pseudoterminal helper procedures289481
+Node: Index290965
+
+End Tag Table
