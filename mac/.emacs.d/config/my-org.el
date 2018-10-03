@@ -11,18 +11,26 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(;; other Babel languages
-     (plantuml . t)))
+     (plantuml . t)
+     (http . t)
+     (emacs-lisp . t)
+     (lisp . t)))
 
   ;; not sure where this should go - but for now here
   (setq org-plantuml-jar-path
         (expand-file-name "/usr/local/Cellar/plantuml/plantuml.jar"))
 
+  ;; default tags for my life atm
+  (setq org-tag-persistent-alist
+        '(("improve_practice" . nil)
+          ("lisp" . nil)
+          ("accessibility" . nil)
+          ("oo" . nil)
+          ("measure" . nil)
+          ("blog" . nil)))
+
   (require 'org-journal)
   (setq org-journal-dir "~/Dropbox/org-mode/journal/")
-  (setq org-agenda-files (list "~/Dropbox/org-mode/" "~/Dropbox/org-mode/journal"))
   (setq org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+$")
-
-  ;; Org-trello
-  (require 'org-trello)
-  (custom-set-variables '(org-trello-files '("~/dev/springer/fleet/trello.org"))))
+  (setq org-agenda-files (list "~/Dropbox/org-mode/" "~/Dropbox/org-mode/journal")))
 (provide 'my-org)
