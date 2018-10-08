@@ -12,6 +12,9 @@
 ;; No scrollbars please, we're British
 (scroll-bar-mode -1)
 
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

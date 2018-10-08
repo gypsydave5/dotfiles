@@ -1,10 +1,12 @@
 ;; slime --- stuff
 ;;; Commentary:
 ;;; Code:
-(setf slime-lisp-implementations
-      `((roswell ("ros" "-Q" "run"))))
 
-(load (expand-file-name "~/.roswell/helper.el"))
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setf slime-lisp-implementations
+      '((sbcl ("sbcl"))
+        (roswell ("ros" "-Q" "run"))))
+
 (require 'slime)
 (require 'slime-autoloads)
 (slime-setup '(slime-fancy))
