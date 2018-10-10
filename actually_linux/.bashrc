@@ -98,8 +98,8 @@ export PIP_REQUIRE_VIRTUALENV=true
 
 # Ruby
 export RUBIES=$HOME/.rubies
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 chruby ruby
 
 #default email address
@@ -139,14 +139,17 @@ export BOOT_JVM_OPTIONS="-client
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-#NodeJS
-nvm use node
-
 # QOTD
-if type fortune > /dev/null; then
+if type fortune &> /dev/null; then
     echo ""
     fortune
     echo ""
 fi
 
+# import bash aliases into the emacs eshell
 alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" >~/.emacs.d/eshell/alias
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use node &> /dev/null

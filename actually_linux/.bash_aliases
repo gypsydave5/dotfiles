@@ -27,10 +27,6 @@ alias gp='git pull'
 alias got='git '
 alias gut='git '
 
-# vim
-alias vi='vi'
-alias vim='vi'
-
 # intellij
 alias ij='open -b com.jetbrains.intellij.ce'
 
