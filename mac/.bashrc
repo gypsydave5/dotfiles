@@ -29,8 +29,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -121,7 +121,7 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 chruby ruby
 
 #default email address
-export EMAIL=david.wickes@acuris.com
+export EMAIL=david.wickes@springernature.com
 
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
@@ -166,10 +166,10 @@ nvm use node
 
 # QOTD
 if type fortune > /dev/null; then
-    echo ""
-    fortune
-    echo ""
+  printf "\n$(fortune)\n"
 fi
+
+HISTIGNORE='fg'
 
 alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;" > '~/.emacs.d/eshell/alias'
 PATH=/usr/local/opt/gnu-tar/libexec/gnubin:/Users/dwo3984/perl5/perlbrew/bin:/usr/local/opt/ncurses/bin:/usr/local/opt/jenv/shims:/Users/dwo3984/.jenv/bin:/Users/davidwic/perl5/bin:/Users/dwo3984/.cargo/bin:/Users/dwo3984/.local/bin:/Users/dwo3984/.gem/ruby/2.5.1/bin:/Users/dwo3984/.rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/bin:/Users/dwo3984/.rubies/ruby-2.5.1/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/ncurses/bin:/usr/local/opt/jenv/shims:/Users/dwo3984/.jenv/bin:/Users/davidwic/perl5/bin:/Users/dwo3984/.cargo/bin:/Users/dwo3984/.local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/usr/local/opt/ncurses/bin:/usr/local/opt/jenv/shims:/Users/dwo3984/.jenv/bin:/Users/davidwic/perl5/bin:/Users/dwo3984/.cargo/bin:/Users/dwo3984/.local/bin:/Users/dwo3984/.nvm/versions/node/v10.9.0/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:/Users/dwo3984/go/bin:/Users/dwo3984/bin:/usr/local/sbin:/Users/dwo3984/go/bin:/Users/dwo3984/bin:/Library/TeX/texbin:/usr/local/sbin:/Users/dwo3984/go/bin:/Users/dwo3984/bin:/Library/TeX/texbin
