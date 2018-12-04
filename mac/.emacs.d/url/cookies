@@ -3,7 +3,9 @@
 
 (setq url-cookie-storage
  '(("localhost"
-  [url-cookie "anon-id" "anon-id-aa362a259e032f1" "Sat Oct 12 13:45:45 2086 GMT" "/" "localhost" nil]))
+  [url-cookie "anon-id" "anon-id-aa362a259e032f1" "Sat Oct 12 13:45:45 2086 GMT" "/" "localhost" nil])
+ (".sachachua.com"
+  [url-cookie "__cfduid" "d32ad38ad6daa88b92d11cae04134c9861541500471" "Wed, 06-Nov-19 10:34:31 GMT" "/" ".sachachua.com" nil]))
 )
 (setq url-cookie-secure-storage
  '((".github.com"
