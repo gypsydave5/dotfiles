@@ -16,6 +16,8 @@
                     (add-to-list 'lispy-compat 'magit-blame-mode)
                     (setq lispy-comment-use-single-semicolon t)))
 
+(setq geiser-chez-binary "chez")
+
 (load "~/.roswell/lisp/quicklisp/clhs-use-local.el" t)
 
 (provide 'my-lisps)

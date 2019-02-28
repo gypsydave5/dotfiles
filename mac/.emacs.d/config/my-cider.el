@@ -16,6 +16,13 @@
   (eval-after-load "auto-complete"
     '(progn
        (add-to-list 'ac-modes 'cider-mode)
-       (add-to-list 'ac-modes 'cider-repl-mode))))
+       (add-to-list 'ac-modes 'cider-repl-mode)))
+
+  (eval-after-load 'cider
+  '(progn
+    (cider-add-to-alist 'cider-jack-in-dependencies
+     "org.tcrawley/dynapath" "0.2.5")
+    (cider-add-to-alist 'cider-jack-in-dependencies
+     "com.cemerick/pomegranate" "0.4.0"))))
 
 (provide 'my-cider)

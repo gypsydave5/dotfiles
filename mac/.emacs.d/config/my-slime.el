@@ -33,5 +33,8 @@
   '(define-key inferior-slime-mode-map
      (kbd "C-c C-a") 'slime-eval-buffer))
 
+(setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+
 (require 'common-lisp-snippets)
 (provide 'my-slime)
+
