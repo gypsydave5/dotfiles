@@ -100,7 +100,6 @@
 (require 'my-irc)
 (require 'my-rust)
 
-
 ;; fill width
 (setq-default fill-column 80)
 
@@ -125,6 +124,9 @@
 
 ;; Magit
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; default-text-zoom
+(default-text-scale-mode 1)
 
 ;; shell
 (exec-path-from-shell-initialize)
