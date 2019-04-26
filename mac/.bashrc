@@ -112,7 +112,7 @@ source $HOME/.bash_plugins/ls_colors.sh
 
 ## Python
 # only use pip in a virtual env
-export PIP_REQUIRE_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=false
 
 # Ruby
 export RUBIES=$HOME/.rubies

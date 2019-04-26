@@ -38,7 +38,7 @@
  '(org-agenda-files
    '("~/Dropbox/org-mode/pdp-todo.org" "~/Dropbox/org-mode/pdp.org" "/Users/dwo3984/Dropbox/org-mode/journal/20180906" "/Users/dwo3984/Dropbox/org-mode/journal/20180908" "/Users/dwo3984/Dropbox/org-mode/journal/20180910" "/Users/dwo3984/Dropbox/org-mode/journal/20180911" "/Users/dwo3984/Dropbox/org-mode/journal/20180912" "/Users/dwo3984/Dropbox/org-mode/journal/20180913" "/Users/dwo3984/Dropbox/org-mode/journal/20180917" "/Users/dwo3984/Dropbox/org-mode/journal/20180922"))
  '(package-selected-packages
-   '(clojars tide powerline-evil minimal-theme plan9-theme fennel-mode paredit ## default-text-scale flycheck-rust cargo racer org-journal nov bash-completion common-lisp-snippets indium ensime typed-clojure-mode vimrc-mode rake kotlin-mode handlebars-mode yaml-mode evil-leader jq-mode evil-commentary evil-org js2-refactor go-mode evil-surround evil auctex intero haskell-mode ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm))
+   '(go-eldoc go-autocomplete jedi writegood-mode clojars tide powerline-evil minimal-theme plan9-theme fennel-mode paredit ## default-text-scale flycheck-rust cargo racer org-journal nov bash-completion common-lisp-snippets indium ensime typed-clojure-mode vimrc-mode rake kotlin-mode handlebars-mode yaml-mode evil-leader jq-mode evil-commentary evil-org js2-refactor go-mode evil-surround evil auctex intero haskell-mode ac-geiser racket-mode projectile toggle-test zoom-window aggressive-indent plantuml-mode badwolf-theme lua-mode nodejs-repl chess ac-slime gitignore-mode rvm rainbow-delimiters lispyscript-mode dictionary web-mode react-snippets ac-js2 ac-cider enh-ruby-mode robe magit inf-ruby clojure-snippets cider clojurescript-mode nlinum quack feature-mode smartparens column-marker lispy geiser skewer-mode typescript-mode tss helm-dash column-enforce-mode markdown-mode+ js2-mode emmet-mode yasnippet exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r dash ag xpm json-mode image+ graphviz-dot-mode helm-ag golden-ratio elisp-slime-nav helm))
  '(send-mail-function 'smtpmail-send-it)
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25)
@@ -62,7 +62,6 @@
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 
-(package-initialize)
 (package-install-selected-packages)
 
 ;; enable ido mode
@@ -73,6 +72,11 @@
   (normal-top-level-add-subdirs-to-load-path))
 
 (add-to-list 'load-path (concat user-emacs-directory "config"))
+
+;; shell
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
 
 (require 'my-emacs)
 (require 'my-line-numbers)
@@ -99,6 +103,7 @@
 (require 'my-evil-mode)
 (require 'my-irc)
 (require 'my-rust)
+(require 'my-go)
 
 ;; fill width
 (setq-default fill-column 80)
@@ -127,9 +132,6 @@
 
 ;; default-text-zoom
 (default-text-scale-mode 1)
-
-;; shell
-(exec-path-from-shell-initialize)
 
 (setq-default indent-tabs-mode nil)
 (put 'upcase-region 'disabled nil)
