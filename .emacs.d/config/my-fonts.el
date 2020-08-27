@@ -33,8 +33,5 @@
 ;;     (set-char-table-range composition-function-table (car char-regexp)
 ;;                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
-(add-to-list 'default-frame-alist '(font . "Fira Code"))
-(set-face-attribute 'default t :font "Fira Code")
-
 (provide 'my-fonts)
 ;;; my-fonts.el ends here
