@@ -6,7 +6,6 @@
   (require 'powerline)
   (powerline-default-theme)
 
-  (require 'powerline-evil)
   (load-theme 'plan9 t)
   (load-theme 'whiteboard t)
   (load-theme 'minimal-light t)

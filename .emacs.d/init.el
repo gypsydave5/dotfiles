@@ -30,7 +30,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(Info-additional-directory-list '("~/info"))
+ '(Info-additional-directory-list '("~/info" "~/info/infoman"))
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
@@ -42,10 +42,11 @@
  '(ns-alternate-modifier 'meta)
  '(ns-function-modifier 'hyper)
  '(ns-right-alternate-modifier 'meta)
+ '(ocamlformat-enable 'enable-outside-detected-project)
  '(org-agenda-files
    '("~/Dropbox/org-mode/pdp-todo.org" "~/Dropbox/org-mode/pdp.org" "/Users/dwo3984/Dropbox/org-mode/journal/20180906" "/Users/dwo3984/Dropbox/org-mode/journal/20180908" "/Users/dwo3984/Dropbox/org-mode/journal/20180910" "/Users/dwo3984/Dropbox/org-mode/journal/20180911" "/Users/dwo3984/Dropbox/org-mode/journal/20180912" "/Users/dwo3984/Dropbox/org-mode/journal/20180913" "/Users/dwo3984/Dropbox/org-mode/journal/20180917" "/Users/dwo3984/Dropbox/org-mode/journal/20180922"))
  '(package-selected-packages
-   '(fuel go-eldoc go-autocomplete writegood-mode clojars powerline-evil minimal-theme plan9-theme paredit ## default-text-scale flycheck-rust common-lisp-snippets ensime typed-clojure-mode vimrc-mode rake handlebars-mode yaml-mode evil-leader evil-commentary evil-org js2-refactor auctex ac-geiser toggle-test zoom-window aggressive-indent badwolf-theme nodejs-repl chess ac-slime gitignore-mode rvm lispyscript-mode dictionary react-snippets ac-js2 ac-cider robe clojure-snippets clojurescript-mode nlinum quack column-marker skewer-mode tss helm-dash column-enforce-mode markdown-mode+ emmet-mode exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r ag xpm json-mode image+ helm-ag golden-ratio elisp-slime-nav))
+   '(magit nov toc-mode calibredb cider clojure-mode dash dash-docs flycheck geiser go-mode helm json-reformat slime yasnippet rainbow-delimiters rust-mode markdown-mode org-journal lispy lispyville fuel go-eldoc go-autocomplete writegood-mode clojars minimal-theme plan9-theme paredit ## default-text-scale flycheck-rust common-lisp-snippets ensime typed-clojure-mode vimrc-mode rake handlebars-mode yaml-mode js2-refactor auctex ac-geiser toggle-test zoom-window aggressive-indent badwolf-theme nodejs-repl chess ac-slime gitignore-mode rvm lispyscript-mode dictionary react-snippets ac-js2 ac-cider robe clojure-snippets clojurescript-mode nlinum quack column-marker skewer-mode tss helm-dash column-enforce-mode markdown-mode+ emmet-mode exec-path-from-shell dash-at-point airline-themes powerline helm-ag-r ag xpm json-mode image+ helm-ag golden-ratio elisp-slime-nav))
  '(send-mail-function 'smtpmail-send-it)
  '(show-paren-mode t)
  '(smtpmail-smtp-server "smtp.gmail.com")
@@ -110,7 +111,7 @@
 (require 'my-org)
 (require 'my-fonts)
 (require 'my-flycheck)
-(require 'my-evil-mode)
+;; (require 'my-evil-mode)
 (require 'my-irc)
 (require 'my-rust)
 (require 'my-go)
@@ -121,6 +122,7 @@
 ;; autocomplete
 (setq tab-always-indent 'complete)
 (add-to-list 'completion-styles 'initials t)
+(ac-config-default)
 (global-auto-complete-mode t)
 
 ;; autosave files now go in the user-emacs-directory
@@ -156,8 +158,32 @@
                   (interactive)
                   (insert-char #xa3)))
 
-(provide 'init)
-;;; init.el ends here
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
+(add-hook 'tuareg-mode-hook
+          (require 'ocamlformat)
+          (lambda ()
+            (setq tuareg-prettify-symbols-full t)
+            (setq tuareg-prettify-symbols-extra-alist
+                  (cons '("|>" . ?▷) tuareg-prettify-symbols-extra-alist))
+            (setq tuareg-prettify-symbols-extra-alist
+                  (cons '("'u" . ?υ) tuareg-prettify-symbols-extra-alist))
+            (define-key tuareg-mode-map (kbd "C-M-<tab>") #'ocamlformat)
+            ;; (add-hook 'before-save-hook #'ocamlformat-before-save)
+            ))
+
+(provide 'init)
+;;; init.el ends here
+
+(put 'scroll-left 'disabled nil)
+
+;; some ereader shit here
+
+(require 'calibredb)
+(setq calibredb-root-dir "~/Dropbox/Books/remote_calibre_backup/calibre-lib")
+(setq calibredb-db-dir (expand-file-name "metadata.db" calibredb-root-dir))
+(setq calibredb-library-alist '(("~/Dropbox/Books/remote_calibre_backup/calibre-lib")))
+
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))

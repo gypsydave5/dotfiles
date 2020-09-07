@@ -9,5 +9,9 @@
 (setq rcirc-authinfo nil)
 (add-to-list 'rcirc-authinfo (list "freenode" 'nickserv "gypsydave5" (getenv "IRC_PASSWORD")))
 
+(setq rcirc-server-alist
+      '(("irc.freenode.net" :port 6697 :encryption tls
+	 :channels ("#rcirc" "#ocaml" "#emacswiki"))))
+
 (provide 'my-irc)
 ;;; my-irc.el ends here
