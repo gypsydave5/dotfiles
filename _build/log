@@ -1,0 +1,4 @@
+# dune build -p ppx_string -j 7
+# OCAMLPARAM: unset
+# Workspace root: /Users/gypsydave5/dev/dotfiles
+# disable binary cache

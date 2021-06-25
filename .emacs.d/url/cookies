@@ -3,14 +3,34 @@
 
 (setq url-cookie-storage
  '(("localhost"
-  [url-cookie "anon-id" "anon-id-aa362a259e032f1" "Sat Oct 12 13:45:45 2086 GMT" "/" "localhost" nil])
- (".sachachua.com"
-  [url-cookie "__cfduid" "d32ad38ad6daa88b92d11cae04134c9861541500471" "Wed, 06-Nov-19 10:34:31 GMT" "/" ".sachachua.com" nil]))
+  [url-cookie "anon-id" "anon-id-aa362a259e032f1" "Sat Oct 12 13:45:45 2086 GMT" "/" "localhost" nil]))
 )
 (setq url-cookie-secure-storage
  '((".github.com"
   [url-cookie "HttpOnly" nil "Tue, 24 Jul 2035 19:19:59 -0000" "/" ".github.com" t]
-  [url-cookie "logged_in" "no" "Tue, 24 Jul 2035 19:19:59 -0000" "/" ".github.com" t]))
+  [url-cookie "logged_in" "no" "Tue, 24 Jul 2035 19:19:59 -0000" "/" ".github.com" t])
+ ("mobile.twitter.com"
+  [url-cookie "_mb_tk" "d97d40682dc7dfb7f660c4e480e3c9fa44128353" "Mon Sep 14 19:59:26 2020 GMT" "/" "mobile.twitter.com" t])
+ (".twitter.com"
+  [url-cookie "auth_token" "9680b568ee488832937dd5c03b5fe59c43415154" "Thu Sep 11 19:59:32 2025 GMT" "/" ".twitter.com" t]
+  [url-cookie "u" "6d0cc767c1ad7cd33c255c01a94f8d06" "Sun Mar 13 19:59:32 2022 GMT" "/" ".twitter.com" t]
+  [url-cookie "twid" "u=47573504" "Thu Sep 11 19:59:32 2025 GMT" "/" ".twitter.com" t]
+  [url-cookie "remember_checked_on" "1" "Thu Sep 11 19:59:32 2025 GMT" "/" ".twitter.com" t]
+  [url-cookie "kdt" "TE3ufYU3gKhdl2uIy5LAVdJrIhnqBB1d9OGlp2pJ" "Sun Mar 13 19:59:32 2022 GMT" "/" ".twitter.com" t]
+  [url-cookie "ads_prefs" "HBESAAA=" "Thu Sep 11 19:59:32 2025 GMT" "/" ".twitter.com" t]
+  [url-cookie "dnt" "1" "Thu Sep 11 19:59:32 2025 GMT" "/" ".twitter.com" t]
+  [url-cookie "mobile_metrics_token" "159994068434634982" "Mon Sep 12 19:58:04 2022 GMT" "/" ".twitter.com" t]
+  [url-cookie "d" "32" "Sun Sep 12 19:58:04 2021 GMT" "/" ".twitter.com" t]
+  [url-cookie "m5" "off" "Sun Sep 13 19:58:04 2020 GMT" "/" ".twitter.com" t]
+  [url-cookie "_mobile_sess" "BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoQX2NzcmZfdG9rZW4iLWQ5N2Q0MDY4MmRjN2RmYjdmNjYwYzRlNDgwZTNjOWZhNDQxMjgzNTM%3D--310ecc694d06dccdd4025038d82dd6f0425dc18f" "Wed Nov 11 20:01:30 2020 GMT" "/" ".twitter.com" t]
+  [url-cookie "guest_id" "v1%3A159994067876194282" "Mon Sep 12 19:57:58 2022 GMT" "/" ".twitter.com" t]
+  [url-cookie "personalization_id" "v1_gufN5mtRgey/5cpRIy5xEQ==" "Mon Sep 12 19:57:58 2022 GMT" "/" ".twitter.com" t])
+ ("en.wikipedia.org"
+  [url-cookie "WMF-Last-Access" "12-Sep-2020" "Wed, 14 Oct 2020 12:00:00 GMT" "/" "en.wikipedia.org" t])
+ (".wikipedia.org"
+  [url-cookie "WMF-Last-Access-Global" "12-Sep-2020" "Wed, 14 Oct 2020 12:00:00 GMT" "/" ".wikipedia.org" t])
+ ("github.com"
+  [url-cookie "_octo" "GH1.1.743727274.1599174139" "Fri, 03 Sep 2021 23:02:19 GMT" "/" "github.com" t]))
 )
 
 ;; Local Variables:

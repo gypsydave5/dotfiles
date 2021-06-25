@@ -19,12 +19,6 @@ export PATH=$PATH:$HOME/bin # My own special bins
 # C Libraries
 export LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
 
-# Ruby
-export RUBIES=$HOME/.rubies
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
-chruby ruby
-
 #haskell - stack local directory
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -61,3 +55,34 @@ export PATH="$HOME/.jenv/bin:$PATH"
 
 # opam configuration
 test -r /Users/gypsydave5/.opam/opam-init/init.sh && . /Users/gypsydave5/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+export PATH="/usr/local/sbin:$PATH"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/gypsydave5/Library/Application\ Support/Coursier/bin"
+# <<< coursier install directory <<<
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/gypsydave5/.sdkman"
+[[ -s "/Users/gypsydave5/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gypsydave5/.sdkman/bin/sdkman-init.sh"
+eval export PATH="/Users/gypsydave5/.rbenv/shims:${PATH}"
+export RBENV_SHELL=bash
+source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.bash'
+command rbenv rehash 2>/dev/null
+rbenv() {
+  local command
+  command="${1:-}"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(rbenv "sh-$command" "$@")";;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}
+
+eval "$(rbenv init -)"
+
+export GITHUB_TOKEN=6d5e30f9b8cd76e83d74d7a282bd8eb7de064ab1

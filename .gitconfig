@@ -28,9 +28,6 @@
 [color]
     ui = auto
 
-[init]
-    templatedir = ~/.git-templates
-
 [merge]
 	tool = fugitive
 

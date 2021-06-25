@@ -141,18 +141,11 @@
   (add-to-list 'auto-mode-alist '("\\.eliomi?\\'" . tuareg-mode))
   (add-to-list 'interpreter-mode-alist '("ocamlrun" . tuareg-mode))
   (add-to-list 'interpreter-mode-alist '("ocaml" . tuareg-mode))
+  (require 'ocamlformat)
   (dolist (ext '(".cmo" ".cmx" ".cma" ".cmxa" ".cmxs" ".cmt" ".cmti" ".cmi" ".annot"))
     (add-to-list 'completion-ignored-extensions ext))
   ;; ## end of OPAM user-setup addition for emacs / tuareg ## keep this line
 
-  (setq tuareg-prettify-symbols-full t)
-  (setq tuareg-prettify-symbols-extra-alist
-        (cons '("|>" . ?▷) tuareg-prettify-symbols-extra-alist))
-  (require 'ocamlformat)
-  (add-hook 'tuareg-mode-hook (lambda ()
-                                (define-key tuareg-mode-map (kbd "C-M-<tab>") #'ocamlformat)
-                                ;; (add-hook 'before-save-hook #'ocamlformat-before-save)
-                                )))
 
 
 
@@ -163,5 +156,5 @@
   (autoload 'ocp-indent-caml-mode-setup "/Users/gypsydave5/.opam/4.10.0/share/emacs/site-lisp/ocp-indent.el" "Improved indentation for Caml mode")
   (add-hook 'tuareg-mode-hook 'ocp-setup-indent t)
   (add-hook 'caml-mode-hook 'ocp-indent-caml-mode-setup  t)
-  (setq ocp-indent-path "/Users/gypsydave5/.opam/4.10.0/bin/ocp-indent"))
+  (setq ocp-indent-path "/Users/gypsydave5/.opam/4.10.0/bin/ocp-indent")))
 ;; ## end of OPAM user-setup addition for emacs / ocp-indent ## keep this line
