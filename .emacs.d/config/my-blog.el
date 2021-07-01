@@ -13,19 +13,21 @@
      (lambda (s) (replace-regexp-in-string "[^-a-z]" "" (downcase s)))
      (split-string title " ")) "-") ".md"))
 
-(defun new-blog-post (title description)
+(defun new-blog-post (title description &optional tags-string)
   "Create new blog post with a TITLE and a DESCRIPTION."
+  (interactive (list (read-string "Title: ") (read-string "Description: ") (read-string "Tags: ")))
   (let* ((buffer-name (title-to-filename title))
          (file-path (string-join (list *blog-post-directory* buffer-name)))
-         (datestring (format-time-string "%Y-%m-%dT%H:%M:%S")))
+         (datestring (format-time-string "%Y-%m-%d %H:%M:%S"))
+         (tags (and tags-string (split-string tags-string " "))))
     (if (get-buffer buffer-name) (error (format "Buffer already exists with name \"%s\"" buffer-name)))
     (create-file-buffer file-path)
     (with-current-buffer buffer-name
       (switch-to-buffer buffer-name)
       (set-visited-file-name file-path)
-      (insert-front-matter buffer-name title description datestring))))
+      (insert-front-matter buffer-name title description datestring tags))))
 
-(defun insert-front-matter (buffer title description datestring)
+(defun insert-front-matter (buffer title description datestring tags)
   "Insert blog post frontmatter into a BUFFER using the TITLE, DESCRIPTION and DATESTRING."
   (with-current-buffer buffer
     (insert (format "---
@@ -33,10 +35,8 @@ title: %s
 description: %s
 published: false
 date: %s
-tags:
-  - computerscience
-  - beginners
----" title description datestring))))
+tags:%s
+---" title description datestring (concat "\n  - " (string-join tags "\n  - "))))))
 
 (new-blog-post "I've had an amazing idea" "This is the description of the amazing idea")
 
@@ -52,15 +52,15 @@ tags:
 
 (ert-deftest test-insert-frontmatter ()
   (with-temp-buffer
-    (insert-front-matter (buffer-name) "This is a title" "Description" "date")
+    (insert-front-matter (buffer-name) "This is a title" "Description" "date" '("hello" "mum"))
     (should (equal (buffer-string) "---
 title: This is a title
 description: Description
 published: false
 date: date
 tags:
-  - computerscience
-  - beginners
+  - hello
+  - mum
 ---"))))
 
 (provide 'my-blog)
