@@ -1,3 +1,9 @@
+;;; my-blog.el --- Helper functions for my blog
+;;; Commentary:
+;;
+
+;;; Code:
+
 (defvar *blog-post-directory* "/Users/gypsydave5/dev/projects/blog/posts/")
 
 (defun string-replace (old new s)
@@ -13,22 +19,25 @@
      (lambda (s) (replace-regexp-in-string "[^-a-z]" "" (downcase s)))
      (split-string title " ")) "-") ".md"))
 
-(defun new-blog-post (title description &optional tags-string)
-  "Create new blog post with a TITLE and a DESCRIPTION."
-  (interactive (list (read-string "Title: ") (read-string "Description: ") (read-string "Tags: ")))
+(defun new-blog-post (title description &optional tags)
+  "Create new blog post with a TITLE and a DESCRIPTION and an optional list of TAGS."
+  (interactive (list (read-string "Title: ") (read-string "Description: ") (let ((tags-string (read-string "Tags: ")))
+                                                                             (and tags-string (split-string tags-string " ")))))
   (let* ((buffer-name (title-to-filename title))
          (file-path (string-join (list *blog-post-directory* buffer-name)))
-         (datestring (format-time-string "%Y-%m-%d %H:%M:%S"))
-         (tags (and tags-string (split-string tags-string " "))))
+         (datestring (format-time-string "%Y-%m-%d %H:%M:%S")))
+
     (if (get-buffer buffer-name) (error (format "Buffer already exists with name \"%s\"" buffer-name)))
+
     (create-file-buffer file-path)
     (with-current-buffer buffer-name
       (switch-to-buffer buffer-name)
       (set-visited-file-name file-path)
+      (markdown-mode)
       (insert-front-matter buffer-name title description datestring tags))))
 
-(defun insert-front-matter (buffer title description datestring tags)
-  "Insert blog post frontmatter into a BUFFER using the TITLE, DESCRIPTION and DATESTRING."
+(defun insert-front-matter (buffer title description datestring &optional tags)
+  "Insert blog post frontmatter into a BUFFER using the TITLE, DESCRIPTION, DATESTRING and an optional list of TAGS."
   (with-current-buffer buffer
     (insert (format "---
 title: %s
@@ -36,9 +45,9 @@ description: %s
 published: false
 date: %s
 tags:%s
----" title description datestring (concat "\n  - " (string-join tags "\n  - "))))))
+---
 
-(new-blog-post "I've had an amazing idea" "This is the description of the amazing idea")
+" title description datestring (if tags (concat "\n  - " (string-join tags "\n  - ")) "")))))
 
 ;;; TESTS
 
@@ -61,7 +70,9 @@ date: date
 tags:
   - hello
   - mum
----"))))
+---
+
+"))))
 
 (provide 'my-blog)
 ;;; my-blog.el ends here
