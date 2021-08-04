@@ -1,38 +1,49 @@
 (progn
   (require 'org)
 
-  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+  (use-package org
+    :ensure org-plus-contrib
+    :defer t
+    :bind (("<backtab>" . org-shifttab))
+    :init
 
-  (global-set-key "\C-cl" 'org-store-link)
-  (global-set-key "\C-ca" 'org-agenda)
-  (global-font-lock-mode 1)
+    (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+    (setq org-log-done 'note)
+    (global-set-key "\C-cl" 'org-store-link)
+    (global-set-key "\C-ca" 'org-agenda)
 
-  ;; active Org-babel languages
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(;; other Babel languages
-     (plantuml . t)
-     (http . t)
-     (scheme . t)
-     (shell . t)
-     (emacs-lisp . t)
-     (lisp . t)))
+    (global-font-lock-mode 1)
 
-  ;; not sure where this should go - but for now here
-  (setq org-plantuml-jar-path
-        (expand-file-name "/usr/local/Cellar/plantuml/plantuml.jar"))
+    (setq org-agenda-files (directory-files-recursively "~/Dropbox/org-mode" "\\.org$"))
+    ;; (org-babel-do-load-languages
+    ;;  'org-babel-load-languages
+    ;;  '(;; other Babel languages
+    ;;    (plantuml . t)
+    ;;    (http . t)
+    ;;    (scheme . t)
+    ;;    (shell . t)
+    ;;    (emacs-lisp . t)
+    ;;    (lisp . t)))
+    (setq org-plantuml-jar-path
+          (expand-file-name "/usr/local/Cellar/plantuml/plantuml.jar"))
+    (setq org-tag-persistent-alist
+          '(("improve_practice" . nil)
+            ("lisp" . nil)
+            ("accessibility" . nil)
+            ("oo" . nil)
+            ("measure" . nil)
+            ("blog" . nil))))
 
-  ;; default tags for my life atm
-  (setq org-tag-persistent-alist
-        '(("improve_practice" . nil)
-          ("lisp" . nil)
-          ("accessibility" . nil)
-          ("oo" . nil)
-          ("measure" . nil)
-          ("blog" . nil)))
+  (use-package org-web-tools
+    :ensure t)
 
-  (require 'org-journal)
-  (setq org-journal-dir "~/Dropbox/org-mode/journal/")
-  (setq org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+$")
-  (setq org-agenda-files (list "~/Dropbox/org-mode/" "~/Dropbox/org-mode/journal")))
+  (use-package org-journal
+    :ensure t
+    :init
+    (setq org-journal-dir "~/Dropbox/org-mode/journal/"))
+
+  (use-package ox-pandoc
+    :ensure t))
+
 (provide 'my-org)
+              

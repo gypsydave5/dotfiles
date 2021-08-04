@@ -86,3 +86,12 @@ rbenv() {
 eval "$(rbenv init -)"
 
 export GITHUB_TOKEN=6d5e30f9b8cd76e83d74d7a282bd8eb7de064ab1
+
+##
+# Your previous /Users/gypsydave5/.bash_profile file was backed up as /Users/gypsydave5/.bash_profile.macports-saved_2021-07-27_at_13:46:16
+##
+
+# MacPorts Installer addition on 2021-07-27_at_13:46:16: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

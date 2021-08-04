@@ -2,6 +2,22 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package slime
+  :init
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  :config
+  (setq slime-lisp-implementations
+	'((sbcl  ("/usr/local/bin/sbcl" "--dynamic-space-size" "2GB") :coding-system utf-8-unix))
+	slime-net-coding-system 'utf-8-unix
+	slime-export-save-file t
+	slime-contribs '(slime-fancy slime-repl slime-scratch slime-trace-dialog)
+	lisp-simple-loop-indentation  1
+	lisp-loop-keyword-indentation 6
+	lisp-loop-forms-indentation   6)
+  (add-hook 'slime-load-hook            (lambda () (require 'slime-fancy)))
+  (show-paren-mode 1))
+
+
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setf slime-lisp-implementations
       '((sbcl ("sbcl"))

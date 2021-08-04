@@ -7,7 +7,9 @@
 (setq rcirc-default-full-name "David Wickes")
 
 (setq rcirc-authinfo nil)
-;; (add-to-list 'rcirc-authinfo (list "freenode" 'nickserv "gypsydave5" (getenv "IRC_PASSWORD")))
+(setq *irc-libera-chat-password* "cradlecap")
+
+(setq rcirc-authinfo '(("libera" 'nickserv "gypsydave5" "cradlecap")))
 
 (setq rcirc-server-alist
       '(("irc.libera.chat" :port 6697 :encryption tls

@@ -1,14 +1,28 @@
-(progn
-  (defun rename-file-and-buffer ()
-    "Rename the current buffer and the associated file."
-    (interactive)
-    (let ((filename (buffer-file-name)))
-      (if (not (and filename (file-exists-p filename)))
-          (message "Buffer is not associated with a file")
-        (let ((new-name (read-file-name "New name: " filename)))
-          (cond
-           ((vc-backend filename (vc-rename-file filename new-name))
-            (t
-             (rename-file filename new-name t)
-             (set-visited-file-name new-name t t)))))))))
+;;; my-emacs.el --- emacs settings
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
+;;  Disable splash screen (enable by changing t to 0)
+(setq inhibit-splash-screen t)
+
+;; No scrollbars please, we're British
+(scroll-bar-mode -1)
+
+;; No toolbar either
+(tool-bar-mode -1)
+
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
+(use-package flycheck
+  :ensure t)
+
+(use-package dash
+  :ensure t)
+
 (provide 'my-emacs)
+  
+;;; my-emacs.el ends here
