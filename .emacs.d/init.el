@@ -9,7 +9,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -60,7 +59,10 @@
 (use-package magit
   :ensure t)
 
-(let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+(let ((default-directory
+	(if (file-directory-p "/usr/local/share/emacs/site-lisp/")
+	    "/usr/local/share/emacs/site-lisp/"
+	    "/opt/homebrew/Caskroom/emacs/27.2-2/Emacs.app/Contents/Resources/site-lisp")))
   (normal-top-level-add-subdirs-to-load-path))
 
 (add-to-list 'load-path (concat user-emacs-directory "config"))
