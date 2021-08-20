@@ -40,7 +40,7 @@
         `(("Authorization" . ,(format "Bearer %s" (exercism-api-key)))))
        (response
         (url-retrieve-synchronously
-         "https://api.exercism.io/v1/solutions/latest?track_id=common-lisp&exercise_id=bob")))
+         (format "https://api.exercism.io/v1/solutions/latest?track_id=%s&exercise_id=%s" track exercise))))
 
     (with-current-buffer response
       (delete-region (point-min) url-http-end-of-headers)
@@ -78,6 +78,14 @@
   
   (let ((id (exercism-exercise-latest-solution-id track exercise)))
     (browse-url (format "https://exercism.io/my/solutions/%s" id))))
+
+(defun --exercism-client (path)
+  (let*
+      ((url-request-method "GET")
+       (response (url-retrieve-synchronously (format "https://exercism.io/%s" path))))
+    (with-current-buffer response
+      (libxml-parse-html-region (point-min) (point-max))
+      (buffer-string))))
 
 (provide 'exercism)
 
