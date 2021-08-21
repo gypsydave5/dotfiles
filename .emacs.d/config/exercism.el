@@ -84,7 +84,7 @@
       ((url-request-method "GET")
        (response (url-retrieve-synchronously (format "https://exercism.io/%s" path))))
     (with-current-buffer response
-      (libxml-parse-html-region (point-min) (point-max))
+      (delete-region (point-min) url-http-end-of-headers)
       (buffer-string))))
 
 (provide 'exercism)
