@@ -44,29 +44,21 @@
 
     (with-current-buffer response
       (delete-region (point-min) url-http-end-of-headers)
-      (json-parse-buffer :array-type 'list :object-type 'alist))))
+      (json-parse-string (buffer-string) :array-type 'list :object-type 'alist))))
 
 (defun exercism-exercises-for-track (track)
   "List of exercises for a given Exercism track"
-  (let*
-      ((url-request-method "GET")
-       (response (url-retrieve-synchronously (format "https://exercism.io/tracks/%s/exercises" track))))
-
-    (with-current-buffer response
-      (delete-region (point-min) url-http-end-of-headers)
-      (mapcar
-       (lambda (href) (file-name-base href))
-       (delq nil (mapcar
-           (lambda (el) (dom-attr el 'href))
-           (dom-by-class (libxml-parse-html-region (point-min) (point-max)) "exercise")))))))
-
-(defun exercism-current-exercise ()
-  "The name (slug) of the current exercise. Inferred from the file name (test or solution)"
-  (string-replace "-test" "" (file-name-base (buffer-name))))
+  (let ((html (buffer->html (--exercism-client (format "tracks/%s/exercises" track)))))
+    (mapcar
+     (lambda (href) (file-name-base href))
+     (delq nil (mapcar
+                (lambda (el) (dom-attr el 'href))
+                (dom-by-class html "exercise"))))))
 
 (defun exercism-exercise-latest-solution-id (track exercise)
   "ID for the latest solution of a given exercise on an Exercism track"
-  (let-alist (exercism-exercise-latest-solution-info track exercise)
+  (let-alist
+      (exercism-exercise-latest-solution-info track exercise)
     .solution.id))
 
 (defun exercism-browse-latest-solution (track exercise)
@@ -80,12 +72,29 @@
     (browse-url (format "https://exercism.io/my/solutions/%s" id))))
 
 (defun --exercism-client (path)
-  (let*
-      ((url-request-method "GET")
-       (response (url-retrieve-synchronously (format "https://exercism.io/%s" path))))
-    (with-current-buffer response
-      (delete-region (point-min) url-http-end-of-headers)
-      (buffer-string))))
+  (--http-get (format "https://exercism.io/%s" path)))
+
+(defun --exercism-api-client (path)
+  (--http-get (format "https://api.exercism.io/%s" path)
+              `(("Authorization" . ,(format "Bearer %s" (exercism-api-key))))))
+
+(defun --http-get (url &optional headers)
+  "Brutally, and unashamedly, returns the body of the response no matter what happens"
+    (let*
+        ((url-request-method "GET")
+         (url-request-extra-headers headers)
+       (response (url-retrieve-synchronously url)))
+      (with-current-buffer response
+        (delete-region (point-min) url-http-end-of-headers)
+        (current-buffer))))
+
+(defun buffer->html (buffer)
+  (with-current-buffer buffer
+    (libxml-parse-html-region (point-min) (point-max))))
+
+(defun exercism-current-exercise ()
+  "The name (slug) of the current exercise. Inferred from the file name (test or solution)"
+  (string-replace "-test" "" (file-name-base (buffer-name))))
 
 (provide 'exercism)
 

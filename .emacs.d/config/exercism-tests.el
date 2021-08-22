@@ -23,7 +23,8 @@
       (cl-letf (((symbol-function 'url-retrieve-synchronously)
                  (lambda (p) (setf spy p) (current-buffer)))
                 (url-http-end-of-headers (+ 1 (length headers))))
-        
-      (let ((response-body (--exercism-client path)))
-        (should (equal (concat "https://exercism.io/" path) spy))
-        (should (equal body response-body)))))))
+
+        (let ((response-body (--exercism-client path)))
+          (with-current-buffer response-body
+            (should (equal (concat "https://exercism.io/" path) spy))
+            (should (equal body (buffer-string)))))))))
